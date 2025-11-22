@@ -30,9 +30,9 @@ export function Footer() {
               <li>manager@mahatmehospital.com</li>
             </ul>
             <div className="flex items-center space-x-4 pt-2">
-              <Link href="https://www.facebook.com/MahatmeOphthalmicSkillsUpgradation" aria-label="Facebook"><Facebook className="h-5 w-5 text-muted-foreground hover:text-foreground" /></Link>
-              <Link href="https://x.com/MahatmeEyeHosp" aria-label="Twitter"><Twitter className="h-5 w-5 text-muted-foreground hover:text-foreground" /></Link>
-              <Link href="#" aria-label="Instagram"><Instagram className="h-5 w-5 text-muted-foreground hover:text-foreground" /></Link>
+              <Link href="https://www.facebook.com/MahatmeOphthalmicSkillsUpgradation" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><Facebook className="h-5 w-5 text-muted-foreground hover:text-foreground" /></Link>
+              <Link href="https://x.com/MahatmeEyeHosp" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><Twitter className="h-5 w-5 text-muted-foreground hover:text-foreground" /></Link>
+              <Link href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><Instagram className="h-5 w-5 text-muted-foreground hover:text-foreground" /></Link>
             </div>
           </div>
         </div>
