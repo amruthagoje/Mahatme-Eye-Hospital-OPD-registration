@@ -105,7 +105,7 @@ service cloud.firestore {
 
       match /testimonials/{testimonialId} {
         allow get: if true;
-        allow list: if true;
+        allow list: true;
         allow create: if false; // TODO: Implement rule for admin-only creation.
         allow update: if false; // TODO: Implement rule for admin-only updates.
         allow delete: if false; // TODO: Implement rule for admin-only deletion.
