@@ -25,7 +25,7 @@ export function Footer() {
           <div className="space-y-2">
             <h4 className="font-semibold">Contact</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>123 Vision Lane, Chintaman Nagar, Somalwada, Nagpur – 440025</li>
+              <li>2163-C, near Rajiv Nagar, Chintaman Nagar, Somalwada, Nagpur, Maharashtra 440025</li>
               <li>(123) 456-7890</li>
               <li>contact@mahatmeeyehospital.org</li>
             </ul>
