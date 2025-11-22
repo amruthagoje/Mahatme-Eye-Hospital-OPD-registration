@@ -29,12 +29,16 @@ import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/context/language-context";
+import { useFirestore } from "@/firebase";
+import { collection, serverTimestamp } from "firebase/firestore";
+import { addDocumentNonBlocking } from "@/firebase/non-blocking-updates";
 
 export function PatientRegistrationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const router = useRouter();
   const { t } = useLanguage();
+  const firestore = useFirestore();
 
   const form = useForm<RegistrationSchema>({
     resolver: zodResolver(registrationSchema),
@@ -51,8 +55,26 @@ export function PatientRegistrationForm() {
   });
 
   async function onSubmit(data: RegistrationSchema) {
+    if (!firestore) {
+        toast({
+            variant: "destructive",
+            title: "Database not ready",
+            description: "Please try again in a moment.",
+        });
+        return;
+    }
     setIsSubmitting(true);
+
+    // Handle the database write on the client side
+    const registrationsCollection = collection(firestore, "patients");
+    addDocumentNonBlocking(registrationsCollection, {
+      ...data,
+      createdAt: serverTimestamp(),
+    });
+
+    // You can still call a server action for other tasks if needed
     const result = await submitRegistration(data);
+
     setIsSubmitting(false);
 
     if (result.success) {
@@ -203,7 +225,7 @@ export function PatientRegistrationForm() {
             </div>
         </fieldset>
 
-        <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+        <Button type="submit" className="w-full" size="lg" disabled={isSubmitting || !firestore}>
           {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
           {t('registrationForm.submitButton')}
         </Button>
