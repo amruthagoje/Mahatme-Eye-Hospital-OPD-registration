@@ -26,7 +26,7 @@ export function Footer() {
             <h4 className="font-semibold">Contact</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>2163-C, near Rajiv Nagar, Chintaman Nagar, Somalwada, Nagpur, Maharashtra 440025</li>
-              <li>(123) 456-7890</li>
+              <li>+91-712-2289 101 to 106</li>
               <li>contact@mahatmeeyehospital.org</li>
             </ul>
             <div className="flex items-center space-x-4 pt-2">
