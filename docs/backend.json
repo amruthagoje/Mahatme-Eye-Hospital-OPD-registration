@@ -101,42 +101,59 @@
       "type": "object",
       "description": "Represents a patient registered at the hospital.",
       "properties": {
-        "id": {
+        "fullName": {
           "type": "string",
-          "description": "Unique identifier for the patient entity."
+          "description": "The full name of the patient."
         },
-        "hospitalId": {
-          "type": "string",
-          "description": "Reference to the Hospital. (Relationship: Hospital 1:N Patient)"
+        "age": {
+          "type": "number",
+          "description": "The patient's age."
         },
-        "firstName": {
+        "gender": {
           "type": "string",
-          "description": "The first name of the patient."
+          "enum": [
+            "Male",
+            "Female",
+            "Other"
+          ],
+          "description": "The patient's gender."
         },
-        "lastName": {
+        "contactNumber": {
           "type": "string",
-          "description": "The last name of the patient."
+          "description": "The patient's contact phone number."
         },
-        "dateOfBirth": {
+        "address": {
           "type": "string",
-          "description": "The patient's date of birth.",
-          "format": "date-time"
+          "description": "The patient's full address."
         },
         "email": {
           "type": "string",
-          "description": "The patient's email address.",
+          "description": "The patient's email address (optional).",
           "format": "email"
         },
-        "phone": {
+        "emergencyContactName": {
           "type": "string",
-          "description": "The patient's phone number."
+          "description": "Name of the emergency contact person."
+        },
+        "emergencyContactNumber": {
+          "type": "string",
+          "description": "Phone number of the emergency contact person."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the registration was submitted."
         }
       },
       "required": [
-        "id",
-        "hospitalId",
-        "firstName",
-        "lastName"
+        "fullName",
+        "age",
+        "gender",
+        "contactNumber",
+        "address",
+        "emergencyContactName",
+        "emergencyContactNumber",
+        "createdAt"
       ]
     },
     "Appointment": {
@@ -370,6 +387,22 @@
   "firestore": {
     "structure": [
       {
+        "path": "/patients/{patientId}",
+        "definition": {
+          "entityName": "Patient",
+          "schema": {
+            "$ref": "#/backend/entities/Patient"
+          },
+          "description": "Stores patient registration information. This is a top-level collection.",
+          "params": [
+            {
+              "name": "patientId",
+              "description": "The unique identifier for the patient registration."
+            }
+          ]
+        }
+      },
+      {
         "path": "/hospitals/{hospitalId}",
         "definition": {
           "entityName": "Hospital",
@@ -421,26 +454,6 @@
             {
               "name": "doctorId",
               "description": "The unique identifier for the doctor."
-            }
-          ]
-        }
-      },
-      {
-        "path": "/hospitals/{hospitalId}/patients/{patientId}",
-        "definition": {
-          "entityName": "Patient",
-          "schema": {
-            "$ref": "#/backend/entities/Patient"
-          },
-          "description": "Stores patient information for a specific hospital.",
-          "params": [
-            {
-              "name": "hospitalId",
-              "description": "The unique identifier for the hospital."
-            },
-            {
-              "name": "patientId",
-              "description": "The unique identifier for the patient."
             }
           ]
         }
