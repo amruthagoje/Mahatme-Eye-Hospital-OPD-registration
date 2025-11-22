@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -12,7 +13,7 @@ export function About() {
   return (
     <section id="about" className="w-full">
       <div className="grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-4">
+        <div className="space-y-4 text-center md:text-left">
           <h2 className="text-3xl font-bold font-headline">{t('about.title')}</h2>
           <p className="text-muted-foreground">
             {t('about.p1')}
