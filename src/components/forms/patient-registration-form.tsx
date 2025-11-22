@@ -3,10 +3,9 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
-  registrationSchema,
   submitRegistration,
-  type RegistrationSchema,
 } from "@/app/register/actions";
+import { type RegistrationSchema, registrationSchema } from "@/app/register/schema";
 import { Button } from "@/components/ui/button";
 import {
   Form,
