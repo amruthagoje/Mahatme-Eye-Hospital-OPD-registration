@@ -27,7 +27,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>2163-C, near Rajiv Nagar, Chintaman Nagar, Somalwada, Nagpur, Maharashtra 440025</li>
               <li>+91-712-2289 101 to 106</li>
-              <li>contact@mahatmeeyehospital.org</li>
+              <li>manager@mahatmehospital.com</li>
             </ul>
             <div className="flex items-center space-x-4 pt-2">
               <Link href="#" aria-label="Facebook"><Facebook className="h-5 w-5 text-muted-foreground hover:text-foreground" /></Link>
