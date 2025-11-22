@@ -73,6 +73,7 @@ function LanguageSwitcher() {
       <SelectContent>
         <SelectItem value="en">English</SelectItem>
         <SelectItem value="hi">हिन्दी</SelectItem>
+        <SelectItem value="mr">मराठी</SelectItem>
       </SelectContent>
     </Select>
   );
