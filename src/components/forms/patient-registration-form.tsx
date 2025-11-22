@@ -38,8 +38,8 @@ export function PatientRegistrationForm() {
     resolver: zodResolver(registrationSchema),
     defaultValues: {
       fullName: "",
-      age: undefined,
-      gender: undefined,
+      age: "" as any,
+      gender: "" as any,
       contactNumber: "",
       address: "",
       email: "",
