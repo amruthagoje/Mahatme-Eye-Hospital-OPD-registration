@@ -13,7 +13,7 @@ export function About() {
   return (
     <section id="about" className="w-full">
       <div className="grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-4 text-center">
+        <div className="space-y-4">
           <h2 className="text-3xl font-bold font-headline">{t('about.title')}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             {t('about.p1')}
@@ -24,7 +24,7 @@ export function About() {
         </div>
         <div className="flex justify-center">
           <Card className="p-4 max-w-sm w-full shadow-lg">
-            <CardContent className="flex flex-col items-center text-center p-0 md:p-2">
+            <CardContent className="flex flex-col items-center p-0 md:p-2">
               {doctorImage && (
                 <Image
                   src={doctorImage.imageUrl}

@@ -45,7 +45,7 @@ export function Services() {
   ];
 
   return (
-    <section id="services" className="w-full text-center">
+    <section id="services" className="w-full">
       <h2 className="text-3xl font-bold font-headline">{t('services.title')}</h2>
       <p className="mt-2 mb-12 max-w-2xl mx-auto text-muted-foreground">
         {t('services.subtitle')}

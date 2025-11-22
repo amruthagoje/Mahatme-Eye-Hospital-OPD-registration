@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <Hero />
-      <div className="container space-y-16 py-16 sm:space-y-24 sm:py-24">
+      <div className="container space-y-16 py-16 sm:space-y-24 sm:py-24 text-center">
         <Services />
         <Separator />
         <PopularServices />
