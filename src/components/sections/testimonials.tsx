@@ -10,31 +10,36 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { useLanguage } from '@/context/language-context';
 
-const testimonials = [
-  {
-    id: 'testimonial-1',
-    name: 'Anjali Sharma',
-    comment: "The care I received at Mahatme Eye Hospital was exceptional. The doctors are not only skilled but also incredibly compassionate. My LASIK surgery was a breeze!",
-  },
-  {
-    id: 'testimonial-2',
-    name: 'Rohan Verma',
-    comment: "I was nervous about my son's eye surgery, but the pediatric team was amazing. They made us feel comfortable and confident. Highly recommended.",
-  },
-  {
-    id: 'testimonial-3',
-    name: 'Priya Singh',
-    comment: "A truly world-class hospital. From the front desk to the surgical team, everyone was professional and caring. My vision has never been better.",
-  },
-];
+const testimonialIds = ['testimonial-1', 'testimonial-2', 'testimonial-3'];
 
 export function Testimonials() {
+  const { t } = useLanguage();
+
+  const testimonials = [
+    {
+      id: 'testimonial-1',
+      name: t('testimonials.list.t1.name'),
+      comment: t('testimonials.list.t1.comment'),
+    },
+    {
+      id: 'testimonial-2',
+      name: t('testimonials.list.t2.name'),
+      comment: t('testimonials.list.t2.comment'),
+    },
+    {
+      id: 'testimonial-3',
+      name: t('testimonials.list.t3.name'),
+      comment: t('testimonials.list.t3.comment'),
+    },
+  ];
+
   return (
     <section id="testimonials" className="w-full text-center">
-      <h2 className="text-3xl font-bold font-headline">What Our Patients Say</h2>
+      <h2 className="text-3xl font-bold font-headline">{t('testimonials.title')}</h2>
       <p className="mt-2 mb-12 max-w-2xl mx-auto text-muted-foreground">
-        Real stories from people whose lives we've changed.
+        {t('testimonials.subtitle')}
       </p>
       <Carousel
         opts={{
@@ -54,7 +59,7 @@ export function Testimonials() {
                       {image && (
                         <Image
                           src={image.imageUrl}
-                          alt={`Patient ${testimonial.name}`}
+                          alt={`${t('testimonials.patientAltText')} ${testimonial.name}`}
                           width={80}
                           height={80}
                           className="rounded-full border-4 border-secondary"

@@ -28,11 +28,13 @@ import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useLanguage } from "@/context/language-context";
 
 export function PatientRegistrationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const router = useRouter();
+  const { t } = useLanguage();
 
   const form = useForm<RegistrationSchema>({
     resolver: zodResolver(registrationSchema),
@@ -55,15 +57,15 @@ export function PatientRegistrationForm() {
 
     if (result.success) {
       toast({
-        title: "Registration Successful",
-        description: result.message,
+        title: t('registrationForm.toastSuccessTitle'),
+        description: t('registrationForm.toastSuccessMessage', { name: data.fullName }),
       });
       form.reset();
       router.push('/'); // Redirect to home page on success
     } else {
       toast({
         variant: "destructive",
-        title: "Registration Failed",
+        title: t('registrationForm.toastErrorTitle'),
         description: result.message,
       });
     }
@@ -73,15 +75,15 @@ export function PatientRegistrationForm() {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <fieldset className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <legend className="sr-only">Patient Details</legend>
+            <legend className="sr-only">{t('registrationForm.patientDetails')}</legend>
             <FormField
               control={form.control}
               name="fullName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Full Name</FormLabel>
+                  <FormLabel>{t('registrationForm.fullName')}</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} />
+                    <Input placeholder={t('registrationForm.fullNamePlaceholder')} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -93,7 +95,7 @@ export function PatientRegistrationForm() {
                 name="age"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Age</FormLabel>
+                    <FormLabel>{t('registrationForm.age')}</FormLabel>
                     <FormControl>
                         <Input type="number" placeholder="30" {...field} />
                     </FormControl>
@@ -106,17 +108,17 @@ export function PatientRegistrationForm() {
                 name="gender"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Gender</FormLabel>
+                    <FormLabel>{t('registrationForm.gender')}</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                         <SelectTrigger>
-                            <SelectValue placeholder="Select gender" />
+                            <SelectValue placeholder={t('registrationForm.genderPlaceholder')} />
                         </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                        <SelectItem value="Male">Male</SelectItem>
-                        <SelectItem value="Female">Female</SelectItem>
-                        <SelectItem value="Other">Other</SelectItem>
+                        <SelectItem value="Male">{t('registrationForm.genders.male')}</SelectItem>
+                        <SelectItem value="Female">{t('registrationForm.genders.female')}</SelectItem>
+                        <SelectItem value="Other">{t('registrationForm.genders.other')}</SelectItem>
                         </SelectContent>
                     </Select>
                     <FormMessage />
@@ -127,13 +129,13 @@ export function PatientRegistrationForm() {
         </fieldset>
 
         <fieldset className="space-y-6">
-            <legend className="sr-only">Contact Information</legend>
+            <legend className="sr-only">{t('registrationForm.contactInfo')}</legend>
             <FormField
                 control={form.control}
                 name="contactNumber"
                 render={({ field }) => (
                 <FormItem>
-                    <FormLabel>Contact Number</FormLabel>
+                    <FormLabel>{t('registrationForm.contactNumber')}</FormLabel>
                     <FormControl>
                     <Input placeholder="+91 12345 67890" {...field} />
                     </FormControl>
@@ -146,7 +148,7 @@ export function PatientRegistrationForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email Address (Optional)</FormLabel>
+                  <FormLabel>{t('registrationForm.emailOptional')}</FormLabel>
                   <FormControl>
                     <Input placeholder="john.doe@example.com" {...field} />
                   </FormControl>
@@ -159,9 +161,9 @@ export function PatientRegistrationForm() {
                 name="address"
                 render={({ field }) => (
                 <FormItem>
-                    <FormLabel>Full Address</FormLabel>
+                    <FormLabel>{t('registrationForm.fullAddress')}</FormLabel>
                     <FormControl>
-                    <Textarea placeholder="123 Main Street, City, State, ZIP Code" {...field} />
+                    <Textarea placeholder={t('registrationForm.addressPlaceholder')} {...field} />
                     </FormControl>
                     <FormMessage />
                 </FormItem>
@@ -170,16 +172,16 @@ export function PatientRegistrationForm() {
         </fieldset>
 
         <fieldset className="space-y-6 rounded-lg border p-4">
-            <legend className="text-sm font-medium px-1 -translate-y-4 bg-background w-fit">Emergency Contact</legend>
+            <legend className="text-sm font-medium px-1 -translate-y-4 bg-background w-fit">{t('registrationForm.emergencyContact')}</legend>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <FormField
                     control={form.control}
                     name="emergencyContactName"
                     render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Contact Person Name</FormLabel>
+                        <FormLabel>{t('registrationForm.emergencyContactName')}</FormLabel>
                         <FormControl>
-                        <Input placeholder="Jane Doe" {...field} />
+                        <Input placeholder={t('registrationForm.emergencyContactNamePlaceholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                     </FormItem>
@@ -190,7 +192,7 @@ export function PatientRegistrationForm() {
                     name="emergencyContactNumber"
                     render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Contact Person Number</FormLabel>
+                        <FormLabel>{t('registrationForm.emergencyContactNumber')}</FormLabel>
                         <FormControl>
                         <Input placeholder="+91 98765 43210" {...field} />
                         </FormControl>
@@ -203,7 +205,7 @@ export function PatientRegistrationForm() {
 
         <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
           {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-          Submit Registration
+          {t('registrationForm.submitButton')}
         </Button>
       </form>
     </Form>

@@ -1,40 +1,53 @@
+"use client";
+
 import { Eye, Rocket, Baby, Sparkles, Users } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useLanguage } from '@/context/language-context';
 
-const servicesList = [
-  {
-    icon: Rocket,
-    title: 'LASIK & Refractive Surgery',
-    description: 'Experience life without glasses. Our advanced laser vision correction procedures are safe, quick, and effective.',
-  },
-  {
-    icon: Eye,
-    title: 'Retina & Vitreous Surgery',
-    description: 'Expert care for complex retinal conditions, including diabetic retinopathy, macular degeneration, and retinal detachments.',
-  },
-  {
-    icon: Baby,
-    title: 'Pediatric Ophthalmology',
-    description: 'Gentle and specialized eye care for our youngest patients, from routine exams to complex surgical procedures.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Cosmetic Ophthalmology',
-    description: 'Enhance your natural beauty with our range of cosmetic eye procedures, performed by skilled surgeons.',
-  },
-  {
-    icon: Users,
-    title: 'Community Ophthalmology',
-    description: 'We are committed to serving the community through outreach programs, eye camps, and affordable care for all.',
-  },
-];
+const servicesIcons = {
+  lasik: Rocket,
+  retina: Eye,
+  pediatric: Baby,
+  cosmetic: Sparkles,
+  community: Users,
+};
 
 export function Services() {
+  const { t } = useLanguage();
+
+  const servicesList = [
+    {
+      icon: servicesIcons.lasik,
+      title: t('services.list.lasik.title'),
+      description: t('services.list.lasik.description'),
+    },
+    {
+      icon: servicesIcons.retina,
+      title: t('services.list.retina.title'),
+      description: t('services.list.retina.description'),
+    },
+    {
+      icon: servicesIcons.pediatric,
+      title: t('services.list.pediatric.title'),
+      description: t('services.list.pediatric.description'),
+    },
+    {
+      icon: servicesIcons.cosmetic,
+      title: t('services.list.cosmetic.title'),
+      description: t('services.list.cosmetic.description'),
+    },
+    {
+      icon: servicesIcons.community,
+      title: t('services.list.community.title'),
+      description: t('services.list.community.description'),
+    },
+  ];
+
   return (
     <section id="services" className="w-full text-center">
-      <h2 className="text-3xl font-bold font-headline">Our Expert Services</h2>
+      <h2 className="text-3xl font-bold font-headline">{t('services.title')}</h2>
       <p className="mt-2 mb-12 max-w-2xl mx-auto text-muted-foreground">
-        Comprehensive eye care solutions tailored to your individual needs.
+        {t('services.subtitle')}
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {servicesList.map((service, index) => (
@@ -52,10 +65,10 @@ export function Services() {
         ))}
         <Card className="text-left hover:shadow-lg transition-shadow duration-300 md:col-span-2 lg:col-span-1 bg-primary/10 border-primary/20">
           <CardHeader>
-            <CardTitle>And Many More...</CardTitle>
+            <CardTitle>{t('services.andMore.title')}</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground">We offer a full spectrum of eye care services. Contact us to learn more about how we can help you.</p>
+            <p className="text-muted-foreground">{t('services.andMore.description')}</p>
           </CardContent>
         </Card>
       </div>

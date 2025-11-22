@@ -1,8 +1,13 @@
+"use client";
+
 import { Facebook, Twitter, Instagram } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
+import { useLanguage } from '@/context/language-context';
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="border-t bg-background">
       <div className="container py-12">
@@ -10,20 +15,20 @@ export function Footer() {
           <div className="space-y-4 md:col-span-2">
             <Logo />
             <p className="text-sm text-muted-foreground max-w-sm">
-              Providing comprehensive and compassionate eye care for a clearer tomorrow.
+              {t('footer.tagline')}
             </p>
           </div>
           <div className="space-y-2">
-            <h4 className="font-semibold">Quick Links</h4>
+            <h4 className="font-semibold">{t('footer.quickLinks.title')}</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="#services" className="text-muted-foreground hover:text-foreground">Services</Link></li>
-              <li><Link href="#about" className="text-muted-foreground hover:text-foreground">About Us</Link></li>
-              <li><Link href="/register" className="text-muted-foreground hover:text-foreground">Book Appointment</Link></li>
-              <li><Link href="#faq" className="text-muted-foreground hover:text-foreground">FAQ</Link></li>
+              <li><Link href="#services" className="text-muted-foreground hover:text-foreground">{t('footer.quickLinks.services')}</Link></li>
+              <li><Link href="#about" className="text-muted-foreground hover:text-foreground">{t('footer.quickLinks.about')}</Link></li>
+              <li><Link href="/register" className="text-muted-foreground hover:text-foreground">{t('footer.quickLinks.bookAppointment')}</Link></li>
+              <li><Link href="#faq" className="text-muted-foreground hover:text-foreground">{t('footer.quickLinks.faq')}</Link></li>
             </ul>
           </div>
           <div className="space-y-2">
-            <h4 className="font-semibold">Contact</h4>
+            <h4 className="font-semibold">{t('footer.contact.title')}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>2163-C, near Rajiv Nagar, Chintaman Nagar, Somalwada, Nagpur, Maharashtra 440025</li>
               <li>+91-712-2289 101 to 106</li>
@@ -37,7 +42,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Mahatme Eye Hospital. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {t('footer.copyright')}</p>
         </div>
       </div>
     </footer>

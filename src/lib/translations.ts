@@ -1,0 +1,314 @@
+export type Language = 'en' | 'hi';
+
+const en = {
+  header: {
+    nav: {
+      services: 'Services',
+      about: 'About Us',
+      testimonials: 'Testimonials',
+      faq: 'FAQ',
+    },
+    register: 'Register',
+    bookAppointment: 'Book Appointment',
+    mobileMenu: {
+      open: 'Open menu',
+      register: 'Patient Registration',
+      bookAppointment: 'Book Appointment',
+    },
+  },
+  footer: {
+    tagline: 'Providing comprehensive and compassionate eye care for a clearer tomorrow.',
+    quickLinks: {
+      title: 'Quick Links',
+      services: 'Services',
+      about: 'About Us',
+      bookAppointment: 'Book Appointment',
+      faq: 'FAQ',
+    },
+    contact: {
+      title: 'Contact',
+    },
+    copyright: 'Mahatme Eye Hospital. All rights reserved.',
+  },
+  hero: {
+    title: 'Clarity in Sight, Compassion in Care',
+    subtitle: 'Welcome to Mahatme Eye Hospital, where advanced technology meets expert care. We are dedicated to protecting and restoring your vision.',
+    cta: {
+      bookAppointment: 'Book an Appointment',
+      exploreServices: 'Explore Services',
+    },
+  },
+  services: {
+    title: 'Our Expert Services',
+    subtitle: 'Comprehensive eye care solutions tailored to your individual needs.',
+    list: {
+      lasik: {
+        title: 'LASIK & Refractive Surgery',
+        description: 'Experience life without glasses. Our advanced laser vision correction procedures are safe, quick, and effective.',
+      },
+      retina: {
+        title: 'Retina & Vitreous Surgery',
+        description: 'Expert care for complex retinal conditions, including diabetic retinopathy, macular degeneration, and retinal detachments.',
+      },
+      pediatric: {
+        title: 'Pediatric Ophthalmology',
+        description: 'Gentle and specialized eye care for our youngest patients, from routine exams to complex surgical procedures.',
+      },
+      cosmetic: {
+        title: 'Cosmetic Ophthalmology',
+        description: 'Enhance your natural beauty with our range of cosmetic eye procedures, performed by skilled surgeons.',
+      },
+      community: {
+        title: 'Community Ophthalmology',
+        description: 'We are committed to serving the community through outreach programs, eye camps, and affordable care for all.',
+      },
+    },
+    andMore: {
+      title: 'And Many More...',
+      description: 'We offer a full spectrum of eye care services. Contact us to learn more about how we can help you.',
+    },
+  },
+  about: {
+    title: 'About Mahatme Eye Hospital',
+    p1: 'Founded on the principles of integrity, innovation, and compassion, Mahatme Eye Hospital has been a beacon of hope for patients for over two decades. Our journey began with a simple mission: to provide world-class eye care that is both accessible and affordable.',
+    p2: 'From a humble beginning, we have grown into a leading institution, equipped with state-of-the-art technology and a team of dedicated professionals who are leaders in their respective fields.',
+    doctorName: 'Dr. Vikas Mahatme',
+    doctorTitle: 'Founder & Chief Surgeon',
+    doctorDescription: 'A visionary leader and a renowned ophthalmologist, Dr. Mahatme\'s work has been instrumental in shaping the landscape of eye care in the region. His dedication to patient welfare and community service is the cornerstone of our institution.',
+  },
+  testimonials: {
+    title: 'What Our Patients Say',
+    subtitle: 'Real stories from people whose lives we\'ve changed.',
+    patientAltText: 'Patient',
+    list: {
+      t1: {
+        name: 'Anjali Sharma',
+        comment: "The care I received at Mahatme Eye Hospital was exceptional. The doctors are not only skilled but also incredibly compassionate. My LASIK surgery was a breeze!",
+      },
+      t2: {
+        name: 'Rohan Verma',
+        comment: "I was nervous about my son\'s eye surgery, but the pediatric team was amazing. They made us feel comfortable and confident. Highly recommended.",
+      },
+      t3: {
+        name: 'Priya Singh',
+        comment: "A truly world-class hospital. From the front desk to the surgical team, everyone was professional and caring. My vision has never been better.",
+      },
+    },
+  },
+  community: {
+    title: 'Awards & Community Work',
+    subtitle: 'Recognized for excellence and committed to serving society.',
+    accoladesTitle: 'Our Accolades',
+    accoladesDescription: 'Mahatme Eye Hospital is proud to be recognized with the National Award for Excellence in Healthcare for our pioneering work in ophthalmology and our unwavering commitment to quality patient care.',
+    socialContributionsTitle: 'Social Contributions',
+    socialContributionsDescription: 'Through our \'Vision for All\' initiative, we conduct free eye-checkup camps in rural areas, providing free surgeries and glasses to thousands in need every year.',
+  },
+  faq: {
+    title: 'Intelligent FAQ',
+    subtitle: 'Have a question? Ask our AI assistant or browse common queries.',
+    inputPlaceholder: 'Ask about our services, appointments, etc.',
+    inputAriaLabel: 'Ask a question',
+    askButton: 'Ask AI',
+    predefinedHint: 'Or try one of these:',
+    predefinedQuestions: {
+      q1: 'What services do you offer?',
+      q2: 'How can I book an appointment?',
+      q3: 'Who is the founder of the hospital?',
+    },
+    error: 'Sorry, I could not find an answer. Please try rephrasing your question.',
+    loading: 'Finding an answer...',
+    noQuestions: 'Your answered questions will appear here.',
+  },
+  registrationPage: {
+    title: 'Patient Registration Form',
+    description: 'Please fill out the form below to register for OPD services.',
+  },
+  registrationForm: {
+    patientDetails: 'Patient Details',
+    fullName: 'Full Name',
+    fullNamePlaceholder: 'John Doe',
+    age: 'Age',
+    gender: 'Gender',
+    genderPlaceholder: 'Select gender',
+    genders: {
+      male: 'Male',
+      female: 'Female',
+      other: 'Other',
+    },
+    contactInfo: 'Contact Information',
+    contactNumber: 'Contact Number',
+    emailOptional: 'Email Address (Optional)',
+    fullAddress: 'Full Address',
+    addressPlaceholder: '123 Main Street, City, State, ZIP Code',
+    emergencyContact: 'Emergency Contact',
+    emergencyContactName: 'Contact Person Name',
+    emergencyContactNamePlaceholder: 'Jane Doe',
+    emergencyContactNumber: 'Contact Person Number',
+    submitButton: 'Submit Registration',
+    toastSuccessTitle: 'Registration Successful',
+    toastSuccessMessage: 'Thank you, {name}. Your registration has been submitted successfully.',
+    toastErrorTitle: 'Registration Failed',
+  },
+};
+
+const hi: typeof en = {
+  header: {
+    nav: {
+      services: 'सेवाएं',
+      about: 'हमारे बारे में',
+      testimonials: 'प्रशंसापत्र',
+      faq: 'पूछे जाने वाले प्रश्न',
+    },
+    register: 'पंजीकरण करें',
+    bookAppointment: 'अपॉइंटमेंट बुक करें',
+    mobileMenu: {
+      open: 'मेन्यू खोलें',
+      register: 'रोगी पंजीकरण',
+      bookAppointment: 'अपॉइंटमेंट बुक करें',
+    },
+  },
+  footer: {
+    tagline: 'एक उज्जवल कल के लिए व्यापक और दयालु नेत्र देखभाल प्रदान करना।',
+    quickLinks: {
+      title: 'त्वरित लिंक्स',
+      services: 'सेवाएं',
+      about: 'हमारे बारे में',
+      bookAppointment: 'अपॉइंटमेंट बुक करें',
+      faq: 'पूछे जाने वाले प्रश्न',
+    },
+    contact: {
+      title: 'संपर्क करें',
+    },
+    copyright: 'महात्मे नेत्र अस्पताल। सर्वाधिकार सुरक्षित।',
+  },
+  hero: {
+    title: 'दृष्टि में स्पष्टता, देखभाल में करुणा',
+    subtitle: 'महात्मे नेत्र अस्पताल में आपका स्वागत है, जहाँ उन्नत तकनीक विशेषज्ञ देखभाल से मिलती है। हम आपकी दृष्टि की रक्षा और उसे बहाल करने के लिए समर्पित हैं।',
+    cta: {
+      bookAppointment: 'अपॉइंटमेंट बुक करें',
+      exploreServices: 'सेवाएं देखें',
+    },
+  },
+  services: {
+    title: 'हमारी विशेषज्ञ सेवाएं',
+    subtitle: 'आपकी व्यक्तिगत जरूरतों के अनुरूप व्यापक नेत्र देखभाल समाधान।',
+    list: {
+      lasik: {
+        title: 'लेसिक और अपवर्तक सर्जरी',
+        description: 'चश्मे के बिना जीवन का अनुभव करें। हमारी उन्नत लेजर दृष्टि सुधार प्रक्रियाएं सुरक्षित, त्वरित और प्रभावी हैं।',
+      },
+      retina: {
+        title: 'रेटिना और विट्रियस सर्जरी',
+        description: 'मधुमेह संबंधी रेटिनोपैथी, धब्बेदार अध: पतन और रेटिना डिटेचमेंट सहित जटिल रेटिना स्थितियों के लिए विशेषज्ञ देखभाल।',
+      },
+      pediatric: {
+        title: 'बाल नेत्र विज्ञान',
+        description: 'हमारे सबसे छोटे रोगियों के लिए कोमल और विशेष नेत्र देखभाल, नियमित जांच से लेकर जटिल शल्य चिकित्सा प्रक्रियाओं तक।',
+      },
+      cosmetic: {
+        title: 'कॉस्मेटिक नेत्र विज्ञान',
+        description: 'कुशल सर्जनों द्वारा की जाने वाली हमारी कॉस्मेटिक नेत्र प्रक्रियाओं की श्रृंखला के साथ अपनी प्राकृतिक सुंदरता को बढ़ाएं।',
+      },
+      community: {
+        title: 'सामुदायिक नेत्र विज्ञान',
+        description: 'हम आउटरीच कार्यक्रमों, नेत्र शिविरों और सभी के लिए सस्ती देखभाल के माध्यम से समुदाय की सेवा करने के लिए प्रतिबद्ध हैं।',
+      },
+    },
+    andMore: {
+      title: 'और भी बहुत कुछ...',
+      description: 'हम नेत्र देखभाल सेवाओं की एक पूरी श्रृंखला प्रदान करते हैं। हम आपकी कैसे मदद कर सकते हैं, यह जानने के लिए हमसे संपर्क करें।',
+    },
+ },
+  about: {
+    title: 'महात्मे नेत्र अस्पताल के बारे में',
+    p1: 'ईमानदारी, नवीनता और करुणा के सिद्धांतों पर स्थापित, महात्मे नेत्र अस्पताल दो दशकों से अधिक समय से रोगियों के लिए आशा की किरण रहा है। हमारी यात्रा एक सरल मिशन के साथ शुरू हुई: विश्व स्तरीय नेत्र देखभाल प्रदान करना जो सुलभ और सस्ती दोनों हो।',
+    p2: 'एक विनम्र शुरुआत से, हम एक अग्रणी संस्थान के रूप में विकसित हुए हैं, जो अत्याधुनिक तकनीक और समर्पित पेशेवरों की एक टीम से सुसज्जित है जो अपने संबंधित क्षेत्रों में अग्रणी हैं।',
+    doctorName: 'डॉ. विकास महात्मे',
+    doctorTitle: 'संस्थापक और मुख्य सर्जन',
+    doctorDescription: 'एक दूरदर्शी नेता और एक प्रसिद्ध नेत्र रोग विशेषज्ञ, डॉ. महात्मे के काम ने इस क्षेत्र में नेत्र देखभाल के परिदृश्य को आकार देने में महत्वपूर्ण भूमिका निभाई है। रोगी कल्याण और सामुदायिक सेवा के प्रति उनका समर्पण हमारे संस्थान की आधारशिला है।',
+  },
+  testimonials: {
+    title: 'हमारे रोगी क्या कहते हैं',
+    subtitle: 'उन लोगों की वास्तविक कहानियाँ जिनके जीवन को हमने बदल दिया है।',
+    patientAltText: 'रोगी',
+    list: {
+      t1: {
+        name: 'अंजलि शर्मा',
+        comment: "महात्मे नेत्र अस्पताल में मुझे जो देखभाल मिली वह असाधारण थी। डॉक्टर न केवल कुशल हैं बल्कि अविश्वसनीय रूप से दयालु भी हैं। मेरी लेसिक सर्जरी बहुत आसान थी!",
+      },
+      t2: {
+        name: 'रोहन वर्मा',
+        comment: "मैं अपने बेटे की आंखों की सर्जरी को लेकर घबराया हुआ था, लेकिन बाल चिकित्सा टीम अद्भुत थी। उन्होंने हमें सहज और आत्मविश्वासी महसूस कराया। अत्यधिक अनुशंसित।",
+      },
+      t3: {
+        name: 'प्रिया सिंह',
+        comment: "वास्तव में एक विश्व स्तरीय अस्पताल। फ्रंट डेस्क से लेकर सर्जिकल टीम तक, हर कोई पेशेवर और देखभाल करने वाला था। मेरी दृष्टि कभी बेहतर नहीं रही।",
+      },
+    },
+  },
+  community: {
+    title: 'पुरस्कार और सामुदायिक कार्य',
+    subtitle: 'उत्कृष्टता के लिए मान्यता प्राप्त और समाज की सेवा के लिए प्रतिबद्ध।',
+    accoladesTitle: 'हमारी प्रशंसा',
+    accoladesDescription: 'महात्मे नेत्र अस्पताल को नेत्र विज्ञान में हमारे अग्रणी काम और गुणवत्ता रोगी देखभाल के प्रति हमारी अटूट प्रतिबद्धता के लिए स्वास्थ्य सेवा में उत्कृष्टता के लिए राष्ट्रीय पुरस्कार से सम्मानित होने पर गर्व है।',
+    socialContributionsTitle: 'सामाजिक योगदान',
+    socialContributionsDescription: 'हमारी \'सभी के लिए दृष्टि\' पहल के माध्यम से, हम ग्रामीण क्षेत्रों में मुफ्त नेत्र जांच शिविर आयोजित करते हैं, हर साल हजारों जरूरतमंदों को मुफ्त सर्जरी और चश्मा प्रदान करते हैं।',
+  },
+  faq: {
+    title: 'बुद्धिमान FAQ',
+    subtitle: 'कोई सवाल है? हमारे AI सहायक से पूछें या सामान्य प्रश्नों को ब्राउज़ करें।',
+    inputPlaceholder: 'हमारी सेवाओं, नियुक्तियों आदि के बारे में पूछें।',
+    inputAriaLabel: 'एक प्रश्न पूछें',
+    askButton: 'AI से पूछें',
+    predefinedHint: 'या इनमें से किसी एक को आजमाएं:',
+    predefinedQuestions: {
+      q1: 'आप कौन सी सेवाएं प्रदान करते हैं?',
+      q2: 'मैं अपॉइंटमेंट कैसे बुक कर सकता हूं?',
+      q3: 'अस्पताल के संस्थापक कौन हैं?',
+    },
+    error: 'क्षमा करें, मुझे कोई उत्तर नहीं मिला। कृपया अपने प्रश्न को फिर से लिखने का प्रयास करें।',
+    loading: 'उत्तर खोजा जा रहा है...',
+    noQuestions: 'आपके उत्तर दिए गए प्रश्न यहां दिखाई देंगे।',
+  },
+  registrationPage: {
+    title: 'रोगी पंजीकरण फॉर्म',
+    description: 'ओपीडी सेवाओं के लिए पंजीकरण करने के लिए कृपया नीचे दिया गया फॉर्म भरें।',
+  },
+  registrationForm: {
+    patientDetails: 'रोगी का विवरण',
+    fullName: 'पूरा नाम',
+    fullNamePlaceholder: 'जॉन डो',
+    age: 'आयु',
+    gender: 'लिंग',
+    genderPlaceholder: 'लिंग चुनें',
+    genders: {
+      male: 'पुरुष',
+      female: 'महिला',
+      other: 'अन्य',
+    },
+    contactInfo: 'संपर्क जानकारी',
+    contactNumber: 'संपर्क नंबर',
+    emailOptional: 'ईमेल पता (वैकल्पिक)',
+    fullAddress: 'पूरा पता',
+    addressPlaceholder: '123 मेन स्ट्रीट, शहर, राज्य, ज़िप कोड',
+    emergencyContact: 'आपातकालीन संपर्क',
+    emergencyContactName: 'संपर्क व्यक्ति का नाम',
+    emergencyContactNamePlaceholder: 'जेन डो',
+    emergencyContactNumber: 'संपर्क व्यक्ति का नंबर',
+    submitButton: 'पंजीकरण जमा करें',
+    toastSuccessTitle: 'पंजीकरण सफल',
+    toastSuccessMessage: 'धन्यवाद, {name}। आपका पंजीकरण सफलतापूर्वक जमा हो गया है।',
+    toastErrorTitle: 'पंजीकरण विफल',
+  },
+};
+
+export const translations = { en, hi };
+
+// This generates a union of all possible translation keys
+type NestedKeyOf<ObjectType extends object> = 
+  {[Key in keyof ObjectType & (string | number)]: ObjectType[Key] extends object 
+    ? `${Key}` | `${Key}.${NestedKeyOf<ObjectType[Key]>}`
+    : `${Key}`
+  }[keyof ObjectType & (string | number)];
+
+export type TranslationKey = NestedKeyOf<typeof en>;

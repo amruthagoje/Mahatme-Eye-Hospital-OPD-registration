@@ -1,33 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { Loader2, Lightbulb } from 'lucide-react';
 import { answerQuestion } from '@/ai/flows/intelligent-faq';
-
-// This is the context that will be fed to the AI.
-const websiteContent = `
-Mahatme Eye Hospital Information:
-- Key Services: LASIK & Refractive Surgery, Retina & Vitreous Surgery, Pediatric Ophthalmology, Cosmetic Ophthalmology, Community Ophthalmology.
-- LASIK is for vision correction to reduce dependence on glasses.
-- Retina surgery treats conditions like diabetic retinopathy and macular degeneration.
-- Pediatric care is for children's eye problems.
-- Cosmetic procedures enhance eye appearance.
-- Community ophthalmology involves free eye camps and affordable care.
-- Founder: Dr. Vikas Mahatme, a renowned ophthalmologist.
-- Location: Nagpur, India.
-- Mission: To provide world-class, accessible, and affordable eye care.
-- Appointment Booking: Patients can book appointments online through the registration form on the website.
-`;
-
-const predefinedQuestions = [
-    { id: 'q1', question: 'What services do you offer?' },
-    { id: 'q2', question: 'How can I book an appointment?' },
-    { id: 'q3', question: 'Who is the founder of the hospital?' },
-];
+import { useLanguage } from '@/context/language-context';
 
 type FaqItem = {
     question: string;
@@ -39,6 +19,28 @@ export function Faq() {
   const [loading, setLoading] = useState(false);
   const [faqList, setFaqList] = useState<FaqItem[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const { t } = useLanguage();
+
+  // This is the context that will be fed to the AI.
+  const websiteContent = useMemo(() => `
+Mahatme Eye Hospital Information:
+- Key Services: ${t('services.list.lasik.title')}, ${t('services.list.retina.title')}, ${t('services.list.pediatric.title')}, ${t('services.list.cosmetic.title')}, ${t('services.list.community.title')}.
+- LASIK is for ${t('services.list.lasik.description')}
+- Retina surgery treats conditions like diabetic retinopathy and macular degeneration.
+- Pediatric care is for ${t('services.list.pediatric.description')}
+- Cosmetic procedures enhance eye appearance.
+- Community ophthalmology involves ${t('services.list.community.description')}
+- Founder: ${t('about.doctorName')}, a renowned ophthalmologist.
+- Location: Nagpur, India.
+- Mission: ${t('about.p1')}
+- Appointment Booking: Patients can book appointments online through the registration form on the website.
+`, [t]);
+
+  const predefinedQuestions = useMemo(() => [
+      { id: 'q1', question: t('faq.predefinedQuestions.q1') },
+      { id: 'q2', question: t('faq.predefinedQuestions.q2') },
+      { id: 'q3', question: t('faq.predefinedQuestions.q3') },
+  ], [t]);
 
   const handleQuestionSubmit = async (q: string) => {
     if (!q || loading) return;
@@ -58,7 +60,7 @@ export function Faq() {
         throw new Error('No answer was returned.');
       }
     } catch (e) {
-      setError('Sorry, I could not find an answer. Please try rephrasing your question.');
+      setError(t('faq.error'));
       console.error(e);
     } finally {
       setLoading(false);
@@ -69,9 +71,9 @@ export function Faq() {
   return (
     <section id="faq" className="w-full max-w-4xl mx-auto">
       <div className="text-center">
-        <h2 className="text-3xl font-bold font-headline">Intelligent FAQ</h2>
+        <h2 className="text-3xl font-bold font-headline">{t('faq.title')}</h2>
         <p className="mt-2 mb-8 max-w-2xl mx-auto text-muted-foreground">
-          Have a question? Ask our AI assistant or browse common queries.
+          {t('faq.subtitle')}
         </p>
       </div>
 
@@ -80,19 +82,19 @@ export function Faq() {
             <form onSubmit={(e) => { e.preventDefault(); handleQuestionSubmit(question); }} className="flex flex-col sm:flex-row gap-2">
                 <Input
                     type="text"
-                    placeholder="Ask about our services, appointments, etc."
+                    placeholder={t('faq.inputPlaceholder')}
                     value={question}
                     onChange={(e) => setQuestion(e.target.value)}
                     disabled={loading}
-                    aria-label="Ask a question"
+                    aria-label={t('faq.inputAriaLabel')}
                 />
                 <Button type="submit" disabled={loading || !question}>
                     {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-                    Ask AI
+                    {t('faq.askButton')}
                 </Button>
             </form>
             <div className="text-center mt-4">
-                <p className="text-xs text-muted-foreground">Or try one of these:</p>
+                <p className="text-xs text-muted-foreground">{t('faq.predefinedHint')}</p>
                 <div className="flex gap-2 justify-center mt-2 flex-wrap">
                     {predefinedQuestions.map(q => (
                         <Button key={q.id} variant="outline" size="sm" onClick={() => handleQuestionSubmit(q.question)} disabled={loading}>
@@ -122,7 +124,7 @@ export function Faq() {
       {loading && faqList.length === 0 && (
           <div className="text-center p-8">
               <Loader2 className="h-8 w-8 animate-spin mx-auto text-primary"/>
-              <p className="mt-4 text-muted-foreground">Finding an answer...</p>
+              <p className="mt-4 text-muted-foreground">{t('faq.loading')}</p>
           </div>
       )}
 
@@ -130,7 +132,7 @@ export function Faq() {
         <Card className="bg-secondary border-dashed">
             <CardContent className="p-8 text-center">
                 <Lightbulb className="h-8 w-8 mx-auto text-muted-foreground mb-4" />
-                <p className="text-muted-foreground">Your answered questions will appear here.</p>
+                <p className="text-muted-foreground">{t('faq.noQuestions')}</p>
             </CardContent>
         </Card>
       )}

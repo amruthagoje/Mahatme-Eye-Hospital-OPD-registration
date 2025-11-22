@@ -12,15 +12,18 @@ import {
 } from '@/components/ui/select';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Logo } from '@/components/logo';
-
-const navLinks = [
-  { href: '#services', label: 'Services' },
-  { href: '#about', label: 'About Us' },
-  { href: '#testimonials', label: 'Testimonials' },
-  { href: '#faq', label: 'FAQ' },
-];
+import { useLanguage } from '@/context/language-context';
+import { Language } from '@/lib/translations';
 
 export function Header() {
+  const { t } = useLanguage();
+  const navLinks = [
+    { href: '#services', label: t('header.nav.services') },
+    { href: '#about', label: t('header.nav.about') },
+    { href: '#testimonials', label: t('header.nav.testimonials') },
+    { href: '#faq', label: t('header.nav.faq') },
+  ];
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
@@ -41,18 +44,18 @@ export function Header() {
           <Button asChild>
             <Link href="/register">
               <UserPlus className="mr-2 h-4 w-4" />
-              Register
+              {t('header.register')}
             </Link>
           </Button>
           <Button variant="accent" asChild>
             <Link href="/register">
                 <BookMarked className="mr-2 h-4 w-4" />
-                Book Appointment
+                {t('header.bookAppointment')}
             </Link>
           </Button>
         </div>
         <div className="md:hidden">
-          <MobileMenu />
+          <MobileMenu navLinks={navLinks} />
         </div>
       </div>
     </header>
@@ -60,8 +63,9 @@ export function Header() {
 }
 
 function LanguageSwitcher() {
+  const { language, setLanguage } = useLanguage();
   return (
-    <Select defaultValue="en">
+    <Select defaultValue={language} onValueChange={(value) => setLanguage(value as Language)}>
       <SelectTrigger className="w-auto gap-2 border-0 bg-transparent focus:ring-0 focus:ring-offset-0">
         <Globe className="h-4 w-4 text-muted-foreground" />
         <SelectValue placeholder="Language" />
@@ -74,13 +78,14 @@ function LanguageSwitcher() {
   );
 }
 
-function MobileMenu() {
+function MobileMenu({ navLinks }: { navLinks: {href: string, label: string}[]}) {
+  const { t } = useLanguage();
   return (
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="outline" size="icon">
           <Menu className="h-5 w-5" />
-          <span className="sr-only">Open menu</span>
+          <span className="sr-only">{t('header.mobileMenu.open')}</span>
         </Button>
       </SheetTrigger>
       <SheetContent side="right">
@@ -101,13 +106,13 @@ function MobileMenu() {
             <Button asChild className="w-full">
               <Link href="/register">
                 <UserPlus className="mr-2 h-4 w-4" />
-                Patient Registration
+                {t('header.mobileMenu.register')}
               </Link>
             </Button>
             <Button variant="accent" className="w-full" asChild>
               <Link href="/register">
                 <BookMarked className="mr-2 h-4 w-4" />
-                Book Appointment
+                {t('header.mobileMenu.bookAppointment')}
                 </Link>
             </Button>
             <div className="mt-4">

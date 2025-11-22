@@ -1,20 +1,24 @@
+"use client";
+
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { useLanguage } from '@/context/language-context';
 
 export function About() {
   const doctorImage = PlaceHolderImages.find(img => img.id === 'doctor-vikas');
+  const { t } = useLanguage();
 
   return (
     <section id="about" className="w-full">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-4">
-          <h2 className="text-3xl font-bold font-headline">About Mahatme Eye Hospital</h2>
+          <h2 className="text-3xl font-bold font-headline">{t('about.title')}</h2>
           <p className="text-muted-foreground">
-            Founded on the principles of integrity, innovation, and compassion, Mahatme Eye Hospital has been a beacon of hope for patients for over two decades. Our journey began with a simple mission: to provide world-class eye care that is both accessible and affordable.
+            {t('about.p1')}
           </p>
           <p className="text-muted-foreground">
-            From a humble beginning, we have grown into a leading institution, equipped with state-of-the-art technology and a team of dedicated professionals who are leaders in their respective fields.
+            {t('about.p2')}
           </p>
         </div>
         <div className="flex justify-center">
@@ -30,10 +34,10 @@ export function About() {
                   data-ai-hint={doctorImage.imageHint}
                 />
               )}
-              <h3 className="text-xl font-semibold">Dr. Vikas Mahatme</h3>
-              <p className="text-sm text-primary font-medium">Founder & Chief Surgeon</p>
+              <h3 className="text-xl font-semibold">{t('about.doctorName')}</h3>
+              <p className="text-sm text-primary font-medium">{t('about.doctorTitle')}</p>
               <p className="mt-2 text-sm text-muted-foreground">
-                A visionary leader and a renowned ophthalmologist, Dr. Mahatme's work has been instrumental in shaping the landscape of eye care in the region. His dedication to patient welfare and community service is the cornerstone of our institution.
+                {t('about.doctorDescription')}
               </p>
             </CardContent>
           </Card>
