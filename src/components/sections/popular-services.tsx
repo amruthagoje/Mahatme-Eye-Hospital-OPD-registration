@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -49,7 +50,7 @@ export function PopularServices() {
         {popularServicesList.map((service) => {
           const image = PlaceHolderImages.find(img => img.id === service.id);
           return (
-            <Card key={service.id} className="text-left overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <Card key={service.id} className="text-center overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 {image && (
                     <Image
                         src={image.imageUrl}
@@ -66,7 +67,7 @@ export function PopularServices() {
             </Card>
           );
         })}
-        <Card className="text-left hover:shadow-lg transition-shadow duration-300 bg-primary/10 border-primary/20 flex flex-col justify-center">
+        <Card className="text-center hover:shadow-lg transition-shadow duration-300 bg-primary/10 border-primary/20 flex flex-col justify-center">
           <CardHeader>
             <CardTitle>{t('services.andMore.title')}</CardTitle>
           </CardHeader>

@@ -11,7 +11,7 @@ export function About() {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="w-full">
+    <section id="about" className="w-full text-center">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-4">
           <h2 className="text-3xl font-bold font-headline">{t('about.title')}</h2>
@@ -23,7 +23,7 @@ export function About() {
           </p>
         </div>
         <div className="flex justify-center">
-          <Card className="p-4 max-w-sm w-full shadow-lg">
+          <Card className="p-4 max-w-sm w-full shadow-lg text-center">
             <CardContent className="flex flex-col items-center p-0 md:p-2">
               {doctorImage && (
                 <Image

@@ -45,7 +45,7 @@ export function Services() {
   ];
 
   return (
-    <section id="services" className="w-full">
+    <section id="services" className="w-full text-center">
       <h2 className="text-3xl font-bold font-headline">{t('services.title')}</h2>
       <p className="mt-2 mb-12 max-w-2xl mx-auto text-muted-foreground">
         {t('services.subtitle')}
@@ -53,7 +53,7 @@ export function Services() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {servicesList.map((service, index) => (
           <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
-            <CardHeader>
+            <CardHeader className="items-center">
               <div className="mb-4 bg-primary/10 p-3 rounded-lg w-fit mx-auto">
                 <service.icon className="h-8 w-8 text-primary" />
               </div>
