@@ -5,6 +5,7 @@ import { Testimonials } from '@/components/sections/testimonials';
 import { Community } from '@/components/sections/community';
 import { Faq } from '@/components/sections/faq';
 import { Separator } from '@/components/ui/separator';
+import { PopularServices } from '@/components/sections/popular-services';
 
 export default function Home() {
   return (
@@ -12,6 +13,8 @@ export default function Home() {
       <Hero />
       <div className="container space-y-24 py-24">
         <Services />
+        <Separator />
+        <PopularServices />
         <Separator />
         <About />
         <Separator />

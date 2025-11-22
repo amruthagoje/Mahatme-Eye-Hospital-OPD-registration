@@ -68,6 +68,33 @@ const en = {
       description: 'We offer a full spectrum of eye care services. Contact us to learn more about how we can help you.',
     },
   },
+  popularServices: {
+    title: 'Popular Services',
+    subtitle: 'Specialized treatments for a wide range of eye conditions.',
+    list: {
+        glaucoma: {
+            title: 'Glaucoma'
+        },
+        cornea: {
+            title: 'Cornea'
+        },
+        'retina-surgery': {
+            title: 'Retina Eye Surgery'
+        },
+        'diabetic-retinopathy': {
+            title: 'Diabetic Retinopathy'
+        },
+        'cataract-surgery': {
+            title: 'Cataract Surgery'
+        },
+        lasik: {
+            title: 'Lasik Eye Surgery'
+        },
+        'squint-eyes': {
+            title: 'Squint Eyes'
+        }
+    }
+  },
   about: {
     title: 'About Mahatme Eye Hospital',
     p1: 'Founded on the principles of integrity, innovation, and compassion, Mahatme Eye Hospital has been a beacon of hope for patients for over two decades. Our journey began with a simple mission: to provide world-class eye care that is both accessible and affordable.',
@@ -219,6 +246,33 @@ const hi: typeof en = {
       description: 'हम नेत्र देखभाल सेवाओं की एक पूरी श्रृंखला प्रदान करते हैं। हम आपकी कैसे मदद कर सकते हैं, यह जानने के लिए हमसे संपर्क करें।',
     },
  },
+ popularServices: {
+    title: 'लोकप्रिय सेवाएं',
+    subtitle: 'आंखों की कई तरह की स्थितियों के लिए विशेष उपचार।',
+    list: {
+        glaucoma: {
+            title: 'ग्लूकोमा'
+        },
+        cornea: {
+            title: 'कॉर्निया'
+        },
+        'retina-surgery': {
+            title: 'रेटिना नेत्र शल्य चिकित्सा'
+        },
+        'diabetic-retinopathy': {
+            title: 'मधुमेह संबंधी रेटिनोपैथी'
+        },
+        'cataract-surgery': {
+            title: 'मोतियाबिंद सर्जरी'
+        },
+        lasik: {
+            title: 'लेसिक नेत्र शल्य चिकित्सा'
+        },
+        'squint-eyes': {
+            title: 'तिरछी आँखें'
+        }
+    }
+  },
   about: {
     title: 'महात्मे नेत्र अस्पताल के बारे में',
     p1: 'ईमानदारी, नवीनता और करुणा के सिद्धांतों पर स्थापित, महात्मे नेत्र अस्पताल दो दशकों से अधिक समय से रोगियों के लिए आशा की किरण रहा है। हमारी यात्रा एक सरल मिशन के साथ शुरू हुई: विश्व स्तरीय नेत्र देखभाल प्रदान करना जो सुलभ और सस्ती दोनों हो।',
@@ -369,6 +423,33 @@ const mr: typeof en = {
       title: 'आणि बरेच काही...',
       description: 'आम्ही नेत्रसेवा सेवांची संपूर्ण श्रेणी ऑफर करतो. आम्ही तुम्हाला कशी मदत करू शकतो याबद्दल अधिक जाणून घेण्यासाठी आमच्याशी संपर्क साधा.',
     },
+  },
+  popularServices: {
+    title: 'लोकप्रिय सेवा',
+    subtitle: 'डोळ्यांच्या विविध परिस्थितींसाठी विशेष उपचार.',
+    list: {
+        glaucoma: {
+            title: 'काचबिंदू'
+        },
+        cornea: {
+            title: 'पारपटल'
+        },
+        'retina-surgery': {
+            title: 'रेटिना नेत्र शस्त्रक्रिया'
+        },
+        'diabetic-retinopathy': {
+            title: 'मधुमेही रेटिनोपॅथी'
+        },
+        'cataract-surgery': {
+            title: 'मोतीबिंदू शस्त्रक्रिया'
+        },
+        lasik: {
+            title: 'लॅसिक नेत्र शस्त्रक्रिया'
+        },
+        'squint-eyes': {
+            title: 'तिरळे डोळे'
+        }
+    }
   },
   about: {
     title: 'महात्मे नेत्र रुग्णालयाबद्दल',
