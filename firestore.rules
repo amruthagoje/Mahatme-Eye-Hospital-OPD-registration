@@ -31,8 +31,7 @@ rules_version = '2';
  *   admin roles are defined in the database.
  * - Patient Registration: The `patients` collection allows any user (authenticated
  *   or not) to create a new registration record. This is necessary for the public
- *   facing registration form. Once created, records cannot be read, updated, or
- *   deleted by clients.
+ *   facing registration form.
  *
  * Denormalization for Authorization:
  * These rules are written with the expectation that authorization data will be
@@ -57,13 +56,15 @@ service cloud.firestore {
      * @description Publicly writable collection for new patient registrations.
      * @path        /patients/{patientId}
      * @allow       (create) Any user can submit a new registration.
-     * @deny        (get, list, update, delete) Clients cannot read or modify existing registrations.
+     * @allow       (get, list) For now, any user can read for the admin view.
+     *              TODO: Secure this to only allow authenticated admin users.
+     * @deny        (update, delete) Clients cannot modify existing registrations.
      * @principle   Write-Once, Read-Never (for clients). Data is for backend processing only.
      */
     match /patients/{patientId} {
       allow create: if true;
-      allow get: if false;
-      allow list: if false;
+      allow get: if true; // TODO: Should be admin only
+      allow list: if true; // TODO: Should be admin only
       allow update: if false;
       allow delete: if false;
     }
