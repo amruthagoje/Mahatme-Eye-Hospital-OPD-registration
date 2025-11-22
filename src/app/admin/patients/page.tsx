@@ -16,6 +16,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { FileWarning, Users } from 'lucide-react';
 import { type RegistrationSchema } from '@/app/register/schema';
+import { useLanguage } from '@/context/language-context';
 
 type Patient = RegistrationSchema & {
     id: string;
@@ -39,6 +40,7 @@ function formatTimestamp(timestamp: { seconds: number, nanoseconds: number }) {
 
 export default function PatientListPage() {
   const firestore = useFirestore();
+  const { t } = useLanguage();
 
   const patientsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -56,8 +58,8 @@ export default function PatientListPage() {
                     <Users className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                    <CardTitle>Patient Registrations</CardTitle>
-                    <CardDescription>A list of all submitted patient registrations.</CardDescription>
+                    <CardTitle>{t('patientDataPage.title')}</CardTitle>
+                    <CardDescription>{t('patientDataPage.description')}</CardDescription>
                 </div>
             </div>
         </CardHeader>
@@ -66,9 +68,9 @@ export default function PatientListPage() {
           {error && (
             <Alert variant="destructive">
               <FileWarning className="h-4 w-4" />
-              <AlertTitle>Error Loading Patients</AlertTitle>
+              <AlertTitle>{t('patientDataPage.error.title')}</AlertTitle>
               <AlertDescription>
-                There was a problem fetching the patient data. It might be a network issue or a permission error.
+                {t('patientDataPage.error.description')}
               </AlertDescription>
             </Alert>
           )}
@@ -78,11 +80,11 @@ export default function PatientListPage() {
                     <Table>
                         <TableHeader>
                         <TableRow>
-                            <TableHead>Full Name</TableHead>
-                            <TableHead>Age</TableHead>
-                            <TableHead>Gender</TableHead>
-                            <TableHead>Contact Number</TableHead>
-                            <TableHead>Registration Date</TableHead>
+                            <TableHead>{t('patientDataPage.table.fullName')}</TableHead>
+                            <TableHead>{t('patientDataPage.table.age')}</TableHead>
+                            <TableHead>{t('patientDataPage.table.gender')}</TableHead>
+                            <TableHead>{t('patientDataPage.table.contactNumber')}</TableHead>
+                            <TableHead>{t('patientDataPage.table.registrationDate')}</TableHead>
                         </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -101,9 +103,9 @@ export default function PatientListPage() {
             ) : (
                 <div className="text-center py-16">
                     <Users className="mx-auto h-12 w-12 text-muted-foreground" />
-                    <h3 className="mt-4 text-lg font-semibold">No Patients Found</h3>
+                    <h3 className="mt-4 text-lg font-semibold">{t('patientDataPage.noPatients.title')}</h3>
                     <p className="mt-2 text-sm text-muted-foreground">
-                        No patient registrations have been submitted yet.
+                        {t('patientDataPage.noPatients.description')}
                     </p>
                 </div>
             )

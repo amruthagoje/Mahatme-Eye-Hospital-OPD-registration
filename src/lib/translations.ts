@@ -1,3 +1,4 @@
+
 export type Language = 'en' | 'hi' | 'mr';
 
 const en = {
@@ -175,6 +176,25 @@ const en = {
     toastSuccessTitle: 'Registration Successful',
     toastSuccessMessage: 'Thank you, {name}. Your registration has been submitted successfully.',
     toastErrorTitle: 'Registration Failed',
+  },
+  patientDataPage: {
+    title: 'Patient Registrations',
+    description: 'A list of all submitted patient registrations.',
+    table: {
+      fullName: 'Full Name',
+      age: 'Age',
+      gender: 'Gender',
+      contactNumber: 'Contact Number',
+      registrationDate: 'Registration Date',
+    },
+    noPatients: {
+        title: 'No Patients Found',
+        description: 'No patient registrations have been submitted yet.'
+    },
+    error: {
+        title: 'Error Loading Patients',
+        description: 'There was a problem fetching the patient data. It might be a network issue or a permission error.'
+    }
   },
 };
 
@@ -354,6 +374,25 @@ const hi: typeof en = {
     toastSuccessMessage: 'धन्यवाद, {name}। आपका पंजीकरण सफलतापूर्वक जमा हो गया है।',
     toastErrorTitle: 'पंजीकरण विफल',
   },
+  patientDataPage: {
+    title: 'रोगी पंजीकरण',
+    description: 'सभी प्रस्तुत रोगी पंजीकरणों की एक सूची।',
+    table: {
+      fullName: 'पूरा नाम',
+      age: 'आयु',
+      gender: 'लिंग',
+      contactNumber: 'संपर्क नंबर',
+      registrationDate: 'पंजीकरण तिथि',
+    },
+    noPatients: {
+        title: 'कोई रोगी नहीं मिला',
+        description: 'अभी तक कोई रोगी पंजीकरण जमा नहीं किया गया है।'
+    },
+    error: {
+        title: 'रोगियों को लोड करने में त्रुटि',
+        description: 'रोगी डेटा लाने में कोई समस्या थी। यह एक नेटवर्क समस्या या अनुमति त्रुटि हो सकती है।'
+    }
+  },
 };
 
 const mr: typeof en = {
@@ -531,6 +570,25 @@ const mr: typeof en = {
     toastSuccessTitle: 'नोंदणी यशस्वी',
     toastSuccessMessage: 'धन्यवाद, {name}. तुमची नोंदणी यशस्वीरित्या सादर झाली आहे.',
     toastErrorTitle: 'नोंदणी अयशस्वी',
+  },
+  patientDataPage: {
+    title: 'रुग्ण नोंदणी',
+    description: 'सर्व सादर केलेल्या रुग्ण नोंदणींची सूची.',
+    table: {
+      fullName: 'पूर्ण नाव',
+      age: 'वय',
+      gender: 'लिंग',
+      contactNumber: 'संपर्क क्रमांक',
+      registrationDate: 'नोंदणीची तारीख',
+    },
+    noPatients: {
+        title: 'एकही रुग्ण आढळला नाही',
+        description: 'अद्याप एकही रुग्ण नोंदणी सादर केलेली नाही.'
+    },
+    error: {
+        title: 'रुग्ण लोड करताना त्रुटी',
+        description: 'रुग्ण डेटा आणण्यात समस्या होती. ही नेटवर्क समस्या किंवा परवानगी त्रुटी असू शकते.'
+    }
   },
 };
 
