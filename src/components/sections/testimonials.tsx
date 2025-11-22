@@ -15,7 +15,7 @@ const testimonials = [
   {
     id: 'testimonial-1',
     name: 'Anjali Sharma',
-    comment: "The care I received at Clarity Vision was exceptional. The doctors are not only skilled but also incredibly compassionate. My LASIK surgery was a breeze!",
+    comment: "The care I received at Mahatme Eye Hospital was exceptional. The doctors are not only skilled but also incredibly compassionate. My LASIK surgery was a breeze!",
   },
   {
     id: 'testimonial-2',

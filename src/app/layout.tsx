@@ -5,8 +5,8 @@ import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Clarity Vision - Comprehensive Eye Care',
-  description: 'Clarity Vision offers expert eye care services, from LASIK and retina surgery to pediatric and cosmetic ophthalmology.',
+  title: 'Mahatme Eye Hospital - Comprehensive Eye Care',
+  description: 'Mahatme Eye Hospital offers expert eye care services, from LASIK and retina surgery to pediatric and cosmetic ophthalmology.',
 };
 
 export default function RootLayout({

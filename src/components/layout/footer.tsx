@@ -27,7 +27,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>123 Vision Lane, Nagpur, India</li>
               <li>(123) 456-7890</li>
-              <li>contact@clarityvision.org</li>
+              <li>contact@mahatmeeyehospital.org</li>
             </ul>
             <div className="flex items-center space-x-4 pt-2">
               <Link href="#" aria-label="Facebook"><Facebook className="h-5 w-5 text-muted-foreground hover:text-foreground" /></Link>
@@ -37,7 +37,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Clarity Vision. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Mahatme Eye Hospital. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -9,9 +9,9 @@ export function About() {
     <section id="about" className="w-full">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-4">
-          <h2 className="text-3xl font-bold font-headline">About Clarity Vision</h2>
+          <h2 className="text-3xl font-bold font-headline">About Mahatme Eye Hospital</h2>
           <p className="text-muted-foreground">
-            Founded on the principles of integrity, innovation, and compassion, Clarity Vision has been a beacon of hope for patients for over two decades. Our journey began with a simple mission: to provide world-class eye care that is both accessible and affordable.
+            Founded on the principles of integrity, innovation, and compassion, Mahatme Eye Hospital has been a beacon of hope for patients for over two decades. Our journey began with a simple mission: to provide world-class eye care that is both accessible and affordable.
           </p>
           <p className="text-muted-foreground">
             From a humble beginning, we have grown into a leading institution, equipped with state-of-the-art technology and a team of dedicated professionals who are leaders in their respective fields.

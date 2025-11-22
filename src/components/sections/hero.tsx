@@ -24,7 +24,7 @@ export function Hero() {
           Clarity in Sight, Compassion in Care
         </h1>
         <p className="text-lg md:text-xl max-w-3xl mx-auto drop-shadow-sm">
-          Welcome to Clarity Vision, where advanced technology meets expert care. We are dedicated to protecting and restoring your vision.
+          Welcome to Mahatme Eye Hospital, where advanced technology meets expert care. We are dedicated to protecting and restoring your vision.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" variant="accent" asChild>

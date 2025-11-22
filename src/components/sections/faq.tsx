@@ -10,7 +10,7 @@ import { answerQuestion } from '@/ai/flows/intelligent-faq';
 
 // This is the context that will be fed to the AI.
 const websiteContent = `
-Clarity Vision Hospital Information:
+Mahatme Eye Hospital Information:
 - Key Services: LASIK & Refractive Surgery, Retina & Vitreous Surgery, Pediatric Ophthalmology, Cosmetic Ophthalmology, Community Ophthalmology.
 - LASIK is for vision correction to reduce dependence on glasses.
 - Retina surgery treats conditions like diabetic retinopathy and macular degeneration.

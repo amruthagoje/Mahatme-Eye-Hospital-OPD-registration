@@ -7,7 +7,7 @@ export function Logo() {
       <div className="p-2 bg-primary/20 rounded-lg group-hover:bg-primary/30 transition-colors">
          <Eye className="w-6 h-6 text-primary" />
       </div>
-      <h1 className="font-headline tracking-tight">Clarity Vision</h1>
+      <h1 className="font-headline tracking-tight">Mahatme Eye Hospital</h1>
     </Link>
   );
 }

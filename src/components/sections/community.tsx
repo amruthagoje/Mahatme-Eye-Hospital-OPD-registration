@@ -32,7 +32,7 @@ export function Community() {
                 data-ai-hint={awardImage.imageHint}
               />
             )}
-            <p className="text-muted-foreground">Clarity Vision is proud to be recognized with the National Award for Excellence in Healthcare for our pioneering work in ophthalmology and our unwavering commitment to quality patient care.</p>
+            <p className="text-muted-foreground">Mahatme Eye Hospital is proud to be recognized with the National Award for Excellence in Healthcare for our pioneering work in ophthalmology and our unwavering commitment to quality patient care.</p>
           </CardContent>
         </Card>
         <Card className="hover:shadow-lg transition-shadow duration-300">
