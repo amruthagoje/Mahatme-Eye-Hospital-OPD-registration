@@ -57,7 +57,7 @@
     {
       "id": "retina-surgery",
       "description": "An image showing a retina eye surgery in progress.",
-      "imageUrl": "https://images.unsplash.com/photo-1615552440985-d652ebf4c199?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxleWUlMjBzdXJnZXJ5fGVufDB8fHx8MTc2MzgxMTExM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1615552440985-d652ebf4c199?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxleWUlMjBzdXJnZXJ5fGVufDB8fHx8MTc2MzgxMTExM3ww&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "eye surgery"
     },
     {
@@ -69,7 +69,7 @@
     {
       "id": "cataract-surgery",
       "description": "An image related to cataract surgery.",
-      "imageUrl": "https://images.unsplash.com/photo-1497470674350-dad852ead0eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYXRhcmFjdCUyMHN1cmdlcnl8ZW58MHx8fHwxNzYzODExMTEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1576091160359-ab7b9d6a3c63?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
       "imageHint": "cataract surgery"
     },
     {
