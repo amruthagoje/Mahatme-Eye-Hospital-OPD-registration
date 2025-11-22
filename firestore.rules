@@ -1,0 +1,146 @@
+rules_version = '2';
+
+/**
+ * This ruleset is designed for a multi-tenant hospital information portal.
+ *
+ * Core Philosophy:
+ * The security model enforces a strict separation between public-facing
+ * information and sensitive, private data. Public content (like hospital
+ * info, services, doctors, and news) is readable by anyone to support the
+ * website's browsing functionality. All write operations and access to sensitive
+ * data (like patients and appointments) are locked down by default, awaiting
+ * a clear definition of administrative roles or user ownership within the data model.
+ *
+ * Data Structure:
+ * All data is hierarchically organized under a top-level `hospitals` collection.
+ * Each hospital document at `/hospitals/{hospitalId}` acts as a root for its
+ * own set of subcollections (e.g., services, doctors, patients), ensuring
+ * strong data isolation between different hospitals (multi-tenancy).
+ *
+ * Key Security Decisions:
+ * - Public vs. Private: A clear distinction is made between collections.
+ *   - Public Information (hospitals, services, doctors, testimonials, faqs, newsArticles)
+ *     is globally readable but not writable by clients. This allows the website
+ *     to display information while preventing unauthorized modification.
+ *   - Sensitive Information (patients, appointments, donations, volunteers) is
+ *     completely inaccessible (no read or write). This is a secure-by-default
+ *     posture because the current data models lack the necessary fields (e.g., a
+ *     `userId` on a patient record) to link the data to an authenticated user
+ *     and grant them access.
+ * - Write Access: All client-side write access (`create`, `update`, `delete`) is
+ *   disabled across all collections. This assumes that content will be managed
+ *   through a separate, secure admin panel or backend service using service
+ *   accounts, which bypass these rules. This is the safest approach until
+ *   admin roles are defined in the database.
+ *
+ * Denormalization for Authorization:
+ * These rules are written with the expectation that authorization data will be
+ * denormalized onto the documents being secured. For example, to allow a patient
+ * to view their own appointments, the `Appointment` document should contain a
+ * `patientAuthUid` field that can be directly compared against `request.auth.uid`.
+ * The current rules are locked down because these fields are not present in the
+ * provided data schema.
+ */
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // --------------------------------
+    // Helper Functions
+    // --------------------------------
+
+    // --------------------------------
+    // Public Read-Only Collections
+    // --------------------------------
+
+    /**
+     * @description Publicly readable hospital information. Writes are disabled for clients.
+     * @path        /hospitals/{hospitalId}
+     * @allow       (get, list) Any user, authenticated or not, can read hospital data.
+     * @deny        (create, update, delete) Any user attempting to modify hospital data.
+     * @principle   Public Read-Only. Content is assumed to be managed by a backend admin process.
+     */
+    match /hospitals/{hospitalId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if false; // TODO: Implement rule for admin-only creation.
+      allow update: if false; // TODO: Implement rule for admin-only updates.
+      allow delete: if false; // TODO: Implement rule for admin-only deletion.
+
+      match /services/{serviceId} {
+        allow get: if true;
+        allow list: if true;
+        allow create: if false; // TODO: Implement rule for admin-only creation.
+        allow update: if false; // TODO: Implement rule for admin-only updates.
+        allow delete: if false; // TODO: Implement rule for admin-only deletion.
+      }
+
+      match /doctors/{doctorId} {
+        allow get: if true;
+        allow list: if true;
+        allow create: if false; // TODO: Implement rule for admin-only creation.
+        allow update: if false; // TODO: Implement rule for admin-only updates.
+        allow delete: if false; // TODO: Implement rule for admin-only deletion.
+      }
+
+      match /testimonials/{testimonialId} {
+        allow get: if true;
+        allow list: if true;
+        allow create: if false; // TODO: Implement rule for admin-only creation.
+        allow update: if false; // TODO: Implement rule for admin-only updates.
+        allow delete: if false; // TODO: Implement rule for admin-only deletion.
+      }
+
+      match /faqs/{faqId} {
+        allow get: if true;
+        allow list: if true;
+        allow create: if false; // TODO: Implement rule for admin-only creation.
+        allow update: if false; // TODO: Implement rule for admin-only updates.
+        allow delete: if false; // TODO: Implement rule for admin-only deletion.
+      }
+
+      match /newsArticles/{newsArticleId} {
+        allow get: if true;
+        allow list: if true;
+        allow create: if false; // TODO: Implement rule for admin-only creation.
+        allow update: if false; // TODO: Implement rule for admin-only updates.
+        allow delete: if false; // TODO: Implement rule for admin-only deletion.
+      }
+
+      // --------------------------------
+      // Private & Sensitive Collections
+      // --------------------------------
+
+      match /patients/{patientId} {
+        allow get: if false;
+        allow list: if false;
+        allow create: if false;
+        allow update: if false;
+        allow delete: if false;
+      }
+
+      match /appointments/{appointmentId} {
+        allow get: if false;
+        allow list: if false;
+        allow create: if false;
+        allow update: if false;
+        allow delete: if false;
+      }
+
+      match /donations/{donationId} {
+        allow get: if false;
+        allow list: if false;
+        allow create: if false;
+        allow update: if false;
+        allow delete: if false;
+      }
+
+      match /volunteers/{volunteerId} {
+        allow get: if false;
+        allow list: if false;
+        allow create: if false;
+        allow update: if false;
+        allow delete: if false;
+      }
+    }
+  }
+}
