@@ -13,12 +13,12 @@ export function About() {
   return (
     <section id="about" className="w-full">
       <div className="grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-4 text-center md:text-left">
+        <div className="space-y-4 text-center">
           <h2 className="text-3xl font-bold font-headline">{t('about.title')}</h2>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             {t('about.p1')}
           </p>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             {t('about.p2')}
           </p>
         </div>

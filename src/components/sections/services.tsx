@@ -52,9 +52,9 @@ export function Services() {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {servicesList.map((service, index) => (
-          <Card key={index} className="text-center md:text-left hover:shadow-lg transition-shadow duration-300">
+          <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
             <CardHeader>
-              <div className="mb-4 bg-primary/10 p-3 rounded-lg w-fit mx-auto md:mx-0">
+              <div className="mb-4 bg-primary/10 p-3 rounded-lg w-fit mx-auto">
                 <service.icon className="h-8 w-8 text-primary" />
               </div>
               <CardTitle>{service.title}</CardTitle>
@@ -64,7 +64,7 @@ export function Services() {
             </CardContent>
           </Card>
         ))}
-        <Card className="text-center md:text-left hover:shadow-lg transition-shadow duration-300 md:col-span-2 lg:col-span-1 bg-primary/10 border-primary/20">
+        <Card className="text-center hover:shadow-lg transition-shadow duration-300 md:col-span-2 lg:col-span-1 bg-primary/10 border-primary/20">
           <CardHeader>
             <CardTitle>{t('services.andMore.title')}</CardTitle>
           </CardHeader>
