@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -19,7 +19,7 @@ export function Faq() {
   const [loading, setLoading] = useState(false);
   const [faqList, setFaqList] = useState<FaqItem[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   // This is the context that will be fed to the AI.
   const websiteContent = useMemo(() => `
@@ -41,6 +41,10 @@ Mahatme Eye Hospital Information:
       { id: 'q2', question: t('faq.predefinedQuestions.q2') },
       { id: 'q3', question: t('faq.predefinedQuestions.q3') },
   ], [t]);
+
+    useEffect(() => {
+        setFaqList([]);
+    }, [language]);
 
   const handleQuestionSubmit = async (q: string) => {
     if (!q || loading) return;
