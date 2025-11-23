@@ -181,6 +181,7 @@ const en = {
     title: 'Patient Registrations',
     description: 'A list of all submitted patient registrations.',
     table: {
+      tokenNumber: 'Token No.',
       fullName: 'Full Name',
       age: 'Age',
       gender: 'Gender',
@@ -379,6 +380,7 @@ const hi: typeof en = {
     title: 'रोगी पंजीकरण',
     description: 'सभी प्रस्तुत रोगी पंजीकरणों की एक सूची।',
     table: {
+      tokenNumber: 'टोकन नंबर',
       fullName: 'पूरा नाम',
       age: 'आयु',
       gender: 'लिंग',
@@ -577,6 +579,7 @@ const mr: typeof en = {
     title: 'रुग्ण नोंदणी',
     description: 'सर्व सादर केलेल्या रुग्ण नोंदणींची सूची.',
     table: {
+      tokenNumber: 'टोकन क्र.',
       fullName: 'पूर्ण नाव',
       age: 'वय',
       gender: 'लिंग',
