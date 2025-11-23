@@ -131,6 +131,15 @@
           "description": "The patient's email address (optional).",
           "format": "email"
         },
+        "reason": {
+          "type": "string",
+          "enum": [
+            "General enquiry",
+            "Medicine Help",
+            "Consultation"
+          ],
+          "description": "The reason for the patient's visit."
+        },
         "emergencyContactName": {
           "type": "string",
           "description": "Name of the emergency contact person."
@@ -151,6 +160,7 @@
         "gender",
         "contactNumber",
         "address",
+        "reason",
         "emergencyContactName",
         "emergencyContactNumber",
         "createdAt"

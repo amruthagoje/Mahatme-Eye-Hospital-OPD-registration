@@ -49,6 +49,7 @@ export function PatientRegistrationForm() {
       contactNumber: "",
       address: "",
       email: "",
+      reason: "" as any,
       emergencyContactName: "",
       emergencyContactNumber: "",
     },
@@ -148,6 +149,32 @@ export function PatientRegistrationForm() {
                 )}
                 />
             </div>
+        </fieldset>
+
+        <fieldset className="space-y-6">
+            <legend className="sr-only">{t('registrationForm.visitInfo')}</legend>
+             <FormField
+                control={form.control}
+                name="reason"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>{t('registrationForm.reason.label')}</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                        <SelectTrigger>
+                            <SelectValue placeholder={t('registrationForm.reason.placeholder')} />
+                        </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                        <SelectItem value="General enquiry">{t('registrationForm.reason.options.general')}</SelectItem>
+                        <SelectItem value="Medicine Help">{t('registrationForm.reason.options.medicine')}</SelectItem>
+                        <SelectItem value="Consultation">{t('registrationForm.reason.options.consultation')}</SelectItem>
+                        </SelectContent>
+                    </Select>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
         </fieldset>
 
         <fieldset className="space-y-6">
