@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
@@ -22,7 +23,10 @@ export function Faq() {
   const [error, setError] = useState<string | null>(null);
   const { t, language } = useLanguage();
 
-  const websiteContent = useMemo(() => `
+  const websiteContent = useMemo(() => {
+    const appointmentInstruction = t('faq.appointmentInstruction');
+    
+    return `
 Mahatme Eye Hospital Information:
 - Key Services: ${t('services.list.lasik.title')}, ${t('services.list.retina.title')}, ${t('services.list.pediatric.title')}, ${t('services.list.cosmetic.title')}, ${t('services.list.community.title')}.
 - LASIK is for ${t('services.list.lasik.description')}
@@ -33,8 +37,9 @@ Mahatme Eye Hospital Information:
 - Founder: ${t('about.doctorName')}, a renowned ophthalmologist.
 - Location: Nagpur, India.
 - Mission: ${t('about.p1')}
-- Appointment Booking: To answer how to book an appointment, respond with: "You can book an appointment online by clicking the [BOOK_APPOINTMENT_LINK] on the hospital's website."
-`, [t]);
+- Appointment Booking: To answer how to book an appointment, respond with: "${appointmentInstruction}"
+`;
+  }, [t]);
 
   const predefinedQuestions = useMemo(() => [
       { id: 'q1', question: t('faq.predefinedQuestions.q1') },
