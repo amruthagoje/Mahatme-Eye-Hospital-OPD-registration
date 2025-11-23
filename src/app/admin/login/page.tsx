@@ -43,20 +43,26 @@ export default function AdminLoginPage() {
     try {
       if (mode === 'login') {
         await signInWithEmailAndPassword(auth, email, password);
+        toast({
+          title: t('adminLoginPage.loginSuccessTitle'),
+          description: t('adminLoginPage.redirectingMessage'),
+        });
+        router.push('/admin/patients');
       } else {
         await createUserWithEmailAndPassword(auth, email, password);
+        toast({
+          title: t('adminLoginPage.signupSuccessTitle'),
+          description: t('adminLoginPage.loginPrompt'),
+        });
+        setMode('login');
+        setPassword(''); // Clear password for security
       }
-      toast({
-        title: isLoginMode ? t('adminLoginPage.loginSuccessTitle') : t('adminLoginPage.signupSuccessTitle'),
-        description: t('adminLoginPage.redirectingMessage'),
-      });
-      router.push('/admin/patients');
     } catch (err: any) {
       setError(err.message);
       toast({
         variant: "destructive",
         title: mode === 'login' ? t('adminLoginPage.loginFailedTitle') : t('adminLoginPage.signupFailedTitle'),
-        description: t('adminLoginPage.checkCredentialsMessage'),
+        description: err.message || t('adminLoginPage.checkCredentialsMessage'),
       });
     } finally {
       setIsLoading(false);
