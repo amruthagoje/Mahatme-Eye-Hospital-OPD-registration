@@ -5,9 +5,10 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { Loader2, Lightbulb, BookMarked } from 'lucide-react';
+import { Loader2, Lightbulb } from 'lucide-react';
 import { answerQuestion } from '@/ai/flows/intelligent-faq';
 import { useLanguage } from '@/context/language-context';
+import Link from 'next/link';
 
 type FaqItem = {
     question: string;
@@ -21,7 +22,6 @@ export function Faq() {
   const [error, setError] = useState<string | null>(null);
   const { t, language } = useLanguage();
 
-  // This is the context that will be fed to the AI.
   const websiteContent = useMemo(() => `
 Mahatme Eye Hospital Information:
 - Key Services: ${t('services.list.lasik.title')}, ${t('services.list.retina.title')}, ${t('services.list.pediatric.title')}, ${t('services.list.cosmetic.title')}, ${t('services.list.community.title')}.
@@ -33,7 +33,7 @@ Mahatme Eye Hospital Information:
 - Founder: ${t('about.doctorName')}, a renowned ophthalmologist.
 - Location: Nagpur, India.
 - Mission: ${t('about.p1')}
-- Appointment Booking: Patients can book appointments online through the registration form on the website.
+- Appointment Booking: To answer how to book an appointment, respond with: "You can book an appointment online by clicking the [BOOK_APPOINTMENT_LINK] on the hospital's website."
 `, [t]);
 
   const predefinedQuestions = useMemo(() => [
@@ -72,6 +72,20 @@ Mahatme Eye Hospital Information:
     }
   };
 
+  const renderAnswer = (answer: string) => {
+    const parts = answer.split(/(\[BOOK_APPOINTMENT_LINK\])/);
+    return parts.map((part, index) => {
+      if (part === '[BOOK_APPOINTMENT_LINK]') {
+        return (
+          <Button key={index} variant="link" asChild className="p-0 h-auto font-semibold text-base">
+            <Link href="/register">Book Appointment</Link>
+          </Button>
+        );
+      }
+      return part;
+    });
+  };
+
   return (
     <section id="faq" className="w-full max-w-4xl mx-auto">
       <div className="text-center">
@@ -102,7 +116,6 @@ Mahatme Eye Hospital Information:
                 <div className="flex gap-2 justify-center mt-2 flex-wrap">
                     {predefinedQuestions.map(q => (
                         <Button key={q.id} variant="outline" size="sm" onClick={() => handleQuestionSubmit(q.question)} disabled={loading}>
-                            {q.icon && <q.icon className="mr-2 h-4 w-4" />}
                             {q.question}
                         </Button>
                     ))}
@@ -119,7 +132,7 @@ Mahatme Eye Hospital Information:
             <AccordionItem value={`item-${index}`} key={index}>
               <AccordionTrigger>{faq.question}</AccordionTrigger>
               <AccordionContent className="prose prose-sm max-w-none text-muted-foreground">
-                {faq.answer}
+                <p>{renderAnswer(faq.answer)}</p>
               </AccordionContent>
             </AccordionItem>
           ))}
