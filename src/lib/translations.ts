@@ -185,7 +185,8 @@ const en = {
       age: 'Age',
       gender: 'Gender',
       contactNumber: 'Contact Number',
-      registrationDateTime: 'Registration Date & Time',
+      registrationDate: 'Registration Date',
+      registrationTime: 'Registration Time',
     },
     noPatients: {
         title: 'No Patients Found',
@@ -295,7 +296,7 @@ const hi: typeof en = {
   },
   about: {
     title: 'महात्मे नेत्र अस्पताल के बारे में',
-    p1: 'ईमानदारी, नवीनता और करुणा के सिद्धांतों पर स्थापित, महात्मे नेत्र अस्पताल दो दशकों से अधिक समय से रोगियों के लिए आशा की किरण रहा है। हमारी यात्रा एक सरल मिशन के साथ शुरू हुई: विश्व स्तरीय नेत्र देखभाल प्रदान करना जो सुलभ और सस्ती दोनों हो।',
+    p1: 'ईमानदारी, नवीनता और करुणा के सिद्धांतों पर स्थापित, महात्मे नेत्र अस्पताल दो दशकों से अधिक समय से रोगियों के لیے आशा की किरण रहा है। हमारी यात्रा एक सरल मिशन के साथ शुरू हुई: विश्व स्तरीय नेत्र देखभाल प्रदान करना जो सुलभ और सस्ती दोनों हो।',
     p2: 'एक विनम्र शुरुआत से, हम एक अग्रणी संस्थान के रूप में विकसित हुए हैं, जो अत्याधुनिक तकनीक और समर्पित पेशेवरों की एक टीम से सुसज्जित है जो अपने संबंधित क्षेत्रों में अग्रणी हैं।',
     doctorName: 'डॉ. विकास महात्मे',
     doctorTitle: 'संस्थापक और मुख्य सर्जन',
@@ -382,7 +383,8 @@ const hi: typeof en = {
       age: 'आयु',
       gender: 'लिंग',
       contactNumber: 'संपर्क नंबर',
-      registrationDateTime: 'पंजीकरण दिनांक और समय',
+      registrationDate: 'पंजीकरण दिनांक',
+      registrationTime: 'पंजीकरण समय',
     },
     noPatients: {
         title: 'कोई रोगी नहीं मिला',
@@ -579,7 +581,8 @@ const mr: typeof en = {
       age: 'वय',
       gender: 'लिंग',
       contactNumber: 'संपर्क क्रमांक',
-      registrationDateTime: 'नोंदणीची तारीख आणि वेळ',
+      registrationDate: 'नोंदणीची तारीख',
+      registrationTime: 'नोंदणीची वेळ',
     },
     noPatients: {
         title: 'एकही रुग्ण आढळला नाही',

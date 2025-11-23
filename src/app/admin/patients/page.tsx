@@ -27,19 +27,27 @@ type Patient = RegistrationSchema & {
 };
 
 
-function formatTimestamp(timestamp: { seconds: number, nanoseconds: number }) {
+function formatDate(timestamp: { seconds: number, nanoseconds: number }) {
   if (!timestamp || typeof timestamp.seconds !== 'number') {
     return 'N/A';
   }
-  return new Date(timestamp.seconds * 1000).toLocaleString('en-US', {
+  return new Date(timestamp.seconds * 1000).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
-    hour12: true,
   });
 }
+
+function formatTime(timestamp: { seconds: number, nanoseconds: number }) {
+    if (!timestamp || typeof timestamp.seconds !== 'number') {
+      return 'N/A';
+    }
+    return new Date(timestamp.seconds * 1000).toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+    });
+  }
 
 export default function PatientListPage() {
   const firestore = useFirestore();
@@ -88,7 +96,8 @@ export default function PatientListPage() {
                             <TableHead>{t('patientDataPage.table.age')}</TableHead>
                             <TableHead>{t('patientDataPage.table.gender')}</TableHead>
                             <TableHead>{t('patientDataPage.table.contactNumber')}</TableHead>
-                            <TableHead>{t('patientDataPage.table.registrationDateTime')}</TableHead>
+                            <TableHead>{t('patientDataPage.table.registrationDate')}</TableHead>
+                            <TableHead>{t('patientDataPage.table.registrationTime')}</TableHead>
                         </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -98,7 +107,8 @@ export default function PatientListPage() {
                             <TableCell>{patient.age}</TableCell>
                             <TableCell>{patient.gender}</TableCell>
                             <TableCell>{patient.contactNumber}</TableCell>
-                            <TableCell>{formatTimestamp(patient.createdAt)}</TableCell>
+                            <TableCell>{formatDate(patient.createdAt)}</TableCell>
+                            <TableCell>{formatTime(patient.createdAt)}</TableCell>
                             </TableRow>
                         ))}
                         </TableBody>
@@ -124,7 +134,8 @@ export default function PatientListPage() {
 function PatientTableSkeleton() {
     return (
       <div className="space-y-4">
-        <div className="grid grid-cols-5 gap-4 px-4">
+        <div className="grid grid-cols-6 gap-4 px-4">
+            <Skeleton className="h-6 w-full" />
             <Skeleton className="h-6 w-full" />
             <Skeleton className="h-6 w-full" />
             <Skeleton className="h-6 w-full" />
