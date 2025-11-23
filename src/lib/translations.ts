@@ -201,11 +201,22 @@ const en = {
     }
   },
   adminLoginPage: {
-    title: 'Admin Portal',
+    title: 'Admin Portal Login',
     description: 'Enter your credentials to access the admin dashboard.',
+    signupTitle: 'Admin Portal Sign Up',
+    signupDescription: 'Create a new admin account.',
     emailLabel: 'Email',
     passwordLabel: 'Password',
     loginButton: 'Login',
+    signupButton: 'Sign Up',
+    toggleToSignup: "Don't have an account? Sign Up",
+    toggleToLogin: "Already have an account? Login",
+    loginSuccessTitle: "Login Successful",
+    signupSuccessTitle: "Sign Up Successful",
+    redirectingMessage: "Redirecting to patient data...",
+    loginFailedTitle: "Login Failed",
+    signupFailedTitle: "Sign Up Failed",
+    checkCredentialsMessage: "Please check your credentials or try a different email.",
   }
 };
 
@@ -409,11 +420,22 @@ const hi: typeof en = {
     }
   },
   adminLoginPage: {
-    title: 'एडमिन पोर्टल',
+    title: 'एडमिन पोर्टल लॉगिन',
     description: 'एडमिन डैशबोर्ड तक पहुंचने के लिए अपनी क्रेडेंशियल दर्ज करें।',
+    signupTitle: 'एडमिन पोर्टल साइन अप',
+    signupDescription: 'एक नया व्यवस्थापक खाता बनाएँ।',
     emailLabel: 'ईमेल',
     passwordLabel: 'पासवर्ड',
     loginButton: 'लॉग इन करें',
+    signupButton: 'साइन अप करें',
+    toggleToSignup: "खाता नहीं है? साइन अप करें",
+    toggleToLogin: "पहले से ही एक खाता है? लॉग इन करें",
+    loginSuccessTitle: "लॉगिन सफल",
+    signupSuccessTitle: "साइन अप सफल",
+    redirectingMessage: "रोगी डेटा पर पुनर्निर्देशित किया जा रहा है...",
+    loginFailedTitle: "लॉगिन विफल",
+    signupFailedTitle: "साइन अप विफल",
+    checkCredentialsMessage: "कृपया अपनी क्रेडेंशियल जांचें या एक अलग ईमेल आज़माएं।",
   }
 };
 
@@ -617,11 +639,22 @@ const mr: typeof en = {
     }
   },
   adminLoginPage: {
-    title: 'प्रशासक पोर्टल',
+    title: 'प्रशासक पोर्टल लॉगिन',
     description: 'प्रशासक डॅशबोर्डमध्ये प्रवेश करण्यासाठी आपले क्रेडेन्शियल्स प्रविष्ट करा.',
+    signupTitle: 'प्रशासक पोर्टल साइन अप',
+    signupDescription: 'एक नवीन प्रशासक खाते तयार करा.',
     emailLabel: 'ईमेल',
     passwordLabel: 'पासवर्ड',
     loginButton: 'लॉगिन करा',
+    signupButton: 'साइन अप करा',
+    toggleToSignup: "खाते नाही? साइन अप करा",
+    toggleToLogin: "आधीपासूनच एक खाते आहे? लॉगिन करा",
+    loginSuccessTitle: "लॉगिन यशस्वी",
+    signupSuccessTitle: "साइन अप यशस्वी",
+    redirectingMessage: "रुग्ण डेटावर पुनर्निर्देशित करत आहे...",
+    loginFailedTitle: "लॉगिन अयशस्वी",
+    signupFailedTitle: "साइन अप अयशस्वी",
+    checkCredentialsMessage: "कृपया आपली क्रेडेन्शियल्स तपासा किंवा वेगळा ईमेल वापरून पहा.",
   }
 };
 
