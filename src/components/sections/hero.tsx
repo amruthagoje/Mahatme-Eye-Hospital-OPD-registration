@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -17,7 +18,7 @@ export function Hero() {
           src={heroImage.imageUrl}
           alt={heroImage.description}
           fill
-          className="object-cover"
+          className="object-cover top-0"
           priority
           data-ai-hint={heroImage.imageHint}
         />
