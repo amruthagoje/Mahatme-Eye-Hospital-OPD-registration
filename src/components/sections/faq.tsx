@@ -38,7 +38,7 @@ Mahatme Eye Hospital Information:
 
   const predefinedQuestions = useMemo(() => [
       { id: 'q1', question: t('faq.predefinedQuestions.q1') },
-      { id: 'q2', question: t('faq.predefinedQuestions.q2'), icon: BookMarked },
+      { id: 'q2', question: t('faq.predefinedQuestions.q2') },
       { id: 'q3', question: t('faq.predefinedQuestions.q3') },
   ], [t]);
 
