@@ -47,14 +47,18 @@ export default function AdminLoginPage() {
           title: t('adminLoginPage.loginSuccessTitle'),
           description: t('adminLoginPage.redirectingMessage'),
         });
+        router.push('/admin/patients');
       } else {
         await createUserWithEmailAndPassword(auth, email, password);
         toast({
           title: t('adminLoginPage.signupSuccessTitle'),
-          description: t('adminLoginPage.redirectingMessage'),
+          description: t('adminLoginPage.loginPrompt'),
         });
+        setMode('login'); // Switch to login mode
+        // Clear fields for fresh login
+        setEmail('');
+        setPassword('');
       }
-      router.push('/admin/patients');
     } catch (err: any) {
       setError(err.message);
       toast({
