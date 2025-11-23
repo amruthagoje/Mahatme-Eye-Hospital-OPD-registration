@@ -5,7 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { Loader2, Lightbulb } from 'lucide-react';
+import { Loader2, Lightbulb, BookMarked } from 'lucide-react';
 import { answerQuestion } from '@/ai/flows/intelligent-faq';
 import { useLanguage } from '@/context/language-context';
 
@@ -38,7 +38,7 @@ Mahatme Eye Hospital Information:
 
   const predefinedQuestions = useMemo(() => [
       { id: 'q1', question: t('faq.predefinedQuestions.q1') },
-      { id: 'q2', question: t('faq.predefinedQuestions.q2') },
+      { id: 'q2', question: t('faq.predefinedQuestions.q2'), icon: BookMarked },
       { id: 'q3', question: t('faq.predefinedQuestions.q3') },
   ], [t]);
 
@@ -102,6 +102,7 @@ Mahatme Eye Hospital Information:
                 <div className="flex gap-2 justify-center mt-2 flex-wrap">
                     {predefinedQuestions.map(q => (
                         <Button key={q.id} variant="outline" size="sm" onClick={() => handleQuestionSubmit(q.question)} disabled={loading}>
+                            {q.icon && <q.icon className="mr-2 h-4 w-4" />}
                             {q.question}
                         </Button>
                     ))}
