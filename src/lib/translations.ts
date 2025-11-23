@@ -205,6 +205,37 @@ const en = {
         description: 'There was a problem fetching the patient data. It might be a network issue or a permission error.'
     }
   },
+  patientDetailPage: {
+    title: 'Patient Details',
+    description: "A detailed view of the patient's registration information.",
+    backButton: 'Back to List',
+    patientInfo: {
+        title: 'Patient Information',
+        fullName: 'Full Name',
+        age: 'Age',
+        gender: 'Gender',
+        registrationDate: 'Registered On'
+    },
+    contactInfo: {
+        title: 'Contact Information',
+        contactNumber: 'Contact Number',
+        email: 'Email Address',
+        address: 'Full Address'
+    },
+    emergencyContact: {
+        title: 'Emergency Contact',
+        name: 'Name',
+        number: 'Number'
+    },
+    error: {
+        title: 'Error Loading Patient',
+        description: 'There was a problem fetching the patient data. The record may not exist or you may not have permission to view it.'
+    },
+    notFound: {
+        title: 'Patient Not Found',
+        description: 'No patient record was found for this ID.'
+    }
+  },
   adminLoginPage: {
     title: 'Admin Portal Login',
     description: 'Enter your credentials to access the admin dashboard.',
@@ -430,6 +461,37 @@ const hi: typeof en = {
         description: 'रोगी डेटा लाने में कोई समस्या थी। यह एक नेटवर्क समस्या या अनुमति त्रुटि हो सकती है।'
     }
   },
+  patientDetailPage: {
+    title: 'रोगी विवरण',
+    description: 'रोगी की पंजीकरण जानकारी का एक विस्तृत दृश्य।',
+    backButton: 'सूची पर वापस जाएं',
+    patientInfo: {
+        title: 'रोगी की जानकारी',
+        fullName: 'पूरा नाम',
+        age: 'आयु',
+        gender: 'लिंग',
+        registrationDate: 'पंजीकरण की तारीख'
+    },
+    contactInfo: {
+        title: 'संपर्क जानकारी',
+        contactNumber: 'संपर्क नंबर',
+        email: 'ईमेल पता',
+        address: 'पूरा पता'
+    },
+    emergencyContact: {
+        title: 'आपातकालीन संपर्क',
+        name: 'नाम',
+        number: 'नंबर'
+    },
+    error: {
+        title: 'रोगी लोड करने में त्रुटि',
+        description: 'रोगी डेटा लाने में कोई समस्या थी। रिकॉर्ड मौजूद नहीं हो सकता है या आपके पास इसे देखने की अनुमति नहीं हो सकती है।'
+    },
+    notFound: {
+        title: 'रोगी नहीं मिला',
+        description: 'इस आईडी के लिए कोई रोगी रिकॉर्ड नहीं मिला।'
+    }
+  },
   adminLoginPage: {
     title: 'एडमिन पोर्टल लॉगिन',
     description: 'एडमिन डैशबोर्ड तक पहुंचने के लिए अपनी क्रेडेंशियल दर्ज करें।',
@@ -653,6 +715,37 @@ const mr: typeof en = {
     error: {
         title: 'रुग्ण लोड करताना त्रुटी',
         description: 'रुग्ण डेटा आणण्यात समस्या होती. ही नेटवर्क समस्या किंवा परवानगी त्रुटी असू शकते.'
+    }
+  },
+  patientDetailPage: {
+    title: 'रुग्ण तपशील',
+    description: 'रुग्णाच्या नोंदणी माहितीचे तपशीलवार दृश्य.',
+    backButton: 'सूचीवर परत जा',
+    patientInfo: {
+        title: 'रुग्णाची माहिती',
+        fullName: 'पूर्ण नाव',
+        age: 'वय',
+        gender: 'लिंग',
+        registrationDate: 'नोंदणीची तारीख'
+    },
+    contactInfo: {
+        title: 'संपर्क माहिती',
+        contactNumber: 'संपर्क क्रमांक',
+        email: 'ईमेल पत्ता',
+        address: 'पूर्ण पत्ता'
+    },
+    emergencyContact: {
+        title: 'आपत्कालीन संपर्क',
+        name: 'नाव',
+        number: 'क्रमांक'
+    },
+    error: {
+        title: 'रुग्ण लोड करताना त्रुटी',
+        description: 'रुग्ण डेटा आणण्यात समस्या होती. रेकॉर्ड अस्तित्वात नसू शकते किंवा तुम्हाला ते पाहण्याची परवानगी नसू शकते.'
+    },
+    notFound: {
+        title: 'रुग्ण आढळला नाही',
+        description: 'या आयडीसाठी कोणताही रुग्ण रेकॉर्ड आढळला नाही.'
     }
   },
   adminLoginPage: {

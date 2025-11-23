@@ -142,7 +142,11 @@ export default function PatientListPage() {
                         </TableHeader>
                         <TableBody>
                         {patients.map((patient, index) => (
-                            <TableRow key={patient.id}>
+                            <TableRow 
+                                key={patient.id} 
+                                onClick={() => router.push(`/admin/patients/${patient.id}`)}
+                                className="cursor-pointer"
+                            >
                             <TableCell className="font-medium">{patients.length - index}</TableCell>
                             <TableCell className="font-medium">{patient.fullName}</TableCell>
                             <TableCell>{patient.age}</TableCell>
