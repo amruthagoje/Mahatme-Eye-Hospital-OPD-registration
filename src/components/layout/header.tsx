@@ -48,12 +48,6 @@ export function Header() {
               {t('header.adminLogin')}
             </Link>
           </Button>
-          <Button asChild>
-            <Link href="/register">
-              <UserPlus className="mr-2 h-4 w-4" />
-              {t('header.register')}
-            </Link>
-          </Button>
           <Button variant="accent" asChild>
             <Link href="/register">
                 <BookMarked className="mr-2 h-4 w-4" />
@@ -111,12 +105,6 @@ function MobileMenu({ navLinks }: { navLinks: {href: string, label: string}[]}) 
             ))}
           </nav>
           <div className="mt-8 flex flex-col gap-4">
-            <Button asChild className="w-full">
-              <Link href="/register">
-                <UserPlus className="mr-2 h-4 w-4" />
-                {t('header.mobileMenu.register')}
-              </Link>
-            </Button>
             <Button variant="accent" className="w-full" asChild>
               <Link href="/register">
                 <BookMarked className="mr-2 h-4 w-4" />
