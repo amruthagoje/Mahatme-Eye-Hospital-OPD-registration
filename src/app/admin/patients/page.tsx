@@ -2,7 +2,7 @@
 'use client';
 
 import { collection, query, orderBy } from 'firebase/firestore';
-import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
+import { useCollection, useFirestore, useMemoFirebase, useUser, useAuth } from '@/firebase';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Table,
@@ -14,9 +14,13 @@ import {
 } from '@/components/ui/table';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { FileWarning, Users } from 'lucide-react';
+import { FileWarning, Users, LogOut, UserCircle } from 'lucide-react';
 import { type RegistrationSchema } from '@/app/register/schema';
 import { useLanguage } from '@/context/language-context';
+import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
+import { signOut } from 'firebase/auth';
+import { useToast } from '@/hooks/use-toast';
 
 type Patient = RegistrationSchema & {
     id: string;
@@ -51,6 +55,10 @@ function formatTime(timestamp: { seconds: number, nanoseconds: number }) {
 
 export default function PatientListPage() {
   const firestore = useFirestore();
+  const { user } = useUser();
+  const auth = useAuth();
+  const router = useRouter();
+  const { toast } = useToast();
   const { t } = useLanguage();
 
   const patientsQuery = useMemoFirebase(() => {
@@ -61,18 +69,49 @@ export default function PatientListPage() {
 
   const { data: patients, isLoading, error } = useCollection<Patient>(patientsQuery);
 
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      toast({
+        title: t('patientDataPage.logout.successTitle'),
+        description: t('patientDataPage.logout.successMessage'),
+      });
+      router.push('/admin/login');
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: t('patientDataPage.logout.errorTitle'),
+        description: t('patientDataPage.logout.errorMessage'),
+      });
+    }
+  };
+
   return (
     <div className="container py-12 md:py-24">
       <Card>
         <CardHeader>
-            <div className="flex items-center gap-4">
-                <div className="bg-primary/10 p-3 rounded-lg">
-                    <Users className="h-6 w-6 text-primary" />
+            <div className="flex flex-col sm:flex-row justify-between sm:items-start gap-4">
+                <div className="flex items-center gap-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                        <Users className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                        <CardTitle>{t('patientDataPage.title')}</CardTitle>
+                        <CardDescription>{t('patientDataPage.description')}</CardDescription>
+                    </div>
                 </div>
-                <div>
-                    <CardTitle>{t('patientDataPage.title')}</CardTitle>
-                    <CardDescription>{t('patientDataPage.description')}</CardDescription>
-                </div>
+                {user && (
+                    <div className="flex flex-col items-start sm:items-end gap-2">
+                         <div className="flex items-center gap-2 text-sm text-muted-foreground border p-2 rounded-md">
+                            <UserCircle className="h-4 w-4" />
+                            <span>{t('patientDataPage.loggedInAs', { email: user.email || 'Admin' })}</span>
+                        </div>
+                        <Button variant="outline" size="sm" onClick={handleLogout}>
+                            <LogOut className="mr-2 h-4 w-4" />
+                            {t('patientDataPage.logout.button')}
+                        </Button>
+                    </div>
+                )}
             </div>
         </CardHeader>
         <CardContent>

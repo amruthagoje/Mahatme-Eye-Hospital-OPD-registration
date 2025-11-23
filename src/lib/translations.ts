@@ -179,6 +179,14 @@ const en = {
   patientDataPage: {
     title: 'Patient Registrations',
     description: 'A list of all submitted patient registrations.',
+    loggedInAs: 'Logged in as: {email}',
+    logout: {
+        button: 'Logout',
+        successTitle: 'Logged Out',
+        successMessage: 'You have been successfully logged out.',
+        errorTitle: 'Logout Failed',
+        errorMessage: 'There was an issue logging out. Please try again.',
+    },
     table: {
       tokenNumber: 'Token No.',
       fullName: 'Full Name',
@@ -341,9 +349,9 @@ const hi: typeof en = {
   },
   community: {
     title: 'पुरस्कार और सामुदायिक कार्य',
-    subtitle: 'उत्कृष्टता के लिए मान्यता प्राप्त और समाज की सेवा के लिए प्रतिबद्ध।',
+    subtitle: 'उत्कृष्टता के लिए मान्यता प्राप्त और समाज की सेवा के لیے प्रतिबद्ध।',
     accoladesTitle: 'हमारी प्रशंसा',
-    accoladesDescription: 'महात्मे नेत्र अस्पताल को नेत्र विज्ञान में हमारे अग्रणी काम और गुणवत्ता रोगी देखभाल के प्रति हमारी अटूट प्रतिबद्धता के लिए स्वास्थ्य सेवा में उत्कृष्टता के लिए राष्ट्रीय पुरस्कार से सम्मानित होने पर गर्व है।',
+    accoladesDescription: 'महात्मे नेत्र अस्पताल को नेत्र विज्ञान में हमारे अग्रणी काम और गुणवत्ता रोगी देखभाल के प्रति हमारी अटूट प्रतिबद्धता کے लिए स्वास्थ्य सेवा में उत्कृष्टता के लिए राष्ट्रीय पुरस्कार से सम्मानित होने पर गर्व है।',
     socialContributionsTitle: 'सामाजिक योगदान',
     socialContributionsDescription: 'हमारी \'सभी के लिए दृष्टि\' पहल के माध्यम से, हम ग्रामीण क्षेत्रों में मुफ्त नेत्र जांच शिविर आयोजित करते हैं, हर साल हजारों जरूरतमंदों को मुफ्त सर्जरी और चश्मा प्रदान करते हैं।',
   },
@@ -396,6 +404,14 @@ const hi: typeof en = {
   patientDataPage: {
     title: 'रोगी पंजीकरण',
     description: 'सभी प्रस्तुत रोगी पंजीकरणों की एक सूची।',
+    loggedInAs: 'लॉग इन: {email}',
+    logout: {
+        button: 'लॉग आउट',
+        successTitle: 'लॉग आउट सफल',
+        successMessage: 'आप सफलतापूर्वक लॉग आउट हो गए हैं।',
+        errorTitle: 'लॉग आउट विफल',
+        errorMessage: 'लॉग आउट करते समय कोई समस्या हुई। कृपया पुनः प्रयास करें।',
+    },
     table: {
       tokenNumber: 'टोकन नंबर',
       fullName: 'पूरा नाम',
@@ -613,6 +629,14 @@ const mr: typeof en = {
   patientDataPage: {
     title: 'रुग्ण नोंदणी',
     description: 'सर्व सादर केलेल्या रुग्ण नोंदणींची सूची.',
+    loggedInAs: 'लॉग इन: {email}',
+    logout: {
+        button: 'लॉग आउट',
+        successTitle: 'लॉग आउट यशस्वी',
+        successMessage: 'तुम्ही यशस्वीरित्या लॉग आउट झाला आहात.',
+        errorTitle: 'लॉग आउट अयशस्वी',
+        errorMessage: 'लॉग आउट करताना समस्या आली. कृपया पुन्हा प्रयत्न करा.',
+    },
     table: {
       tokenNumber: 'टोकन क्र.',
       fullName: 'पूर्ण नाव',
@@ -641,7 +665,7 @@ const mr: typeof en = {
     loginButton: 'लॉगिन करा',
     signupButton: 'साइन अप करा',
     toggleToSignup: "खाते नाही? साइन अप करा",
-    toggleToLogin: "आधीपासूनच एक खाते आहे? लॉगिन करा",
+    toggleToLogin: " आधीपासूनच एक खाते आहे? लॉगिन करा",
     loginSuccessTitle: "लॉगिन यशस्वी",
     signupSuccessTitle: "साइन अप यशस्वी",
     redirectingMessage: "रुग्ण डेटावर पुनर्निर्देशित करत आहे...",
