@@ -25,7 +25,7 @@ export function Footer() {
               <li><Link href="#about" className="text-muted-foreground hover:text-foreground">{t('footer.quickLinks.about')}</Link></li>
               <li><Link href="/register" className="text-muted-foreground hover:text-foreground">{t('footer.quickLinks.bookAppointment')}</Link></li>
               <li><Link href="#faq" className="text-muted-foreground hover:text-foreground">{t('footer.quickLinks.faq')}</Link></li>
-              <li><Link href="/admin/patients" className="text-muted-foreground hover:text-foreground">Patient Data</Link></li>
+              <li><Link href="/admin/patients" className="text-muted-foreground hover:text-foreground">{t('footer.quickLinks.patientData')}</Link></li>
             </ul>
           </div>
           <div className="space-y-2">
