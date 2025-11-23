@@ -78,7 +78,7 @@ Mahatme Eye Hospital Information:
       if (part === '[BOOK_APPOINTMENT_LINK]') {
         return (
           <Button key={index} variant="link" asChild className="p-0 h-auto font-semibold text-base">
-            <Link href="/register">Book Appointment</Link>
+            <Link href="/register">{t('header.bookAppointment')}</Link>
           </Button>
         );
       }
