@@ -14,11 +14,12 @@ import {
 } from '@/components/ui/table';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { FileWarning, Users, LogOut, UserCircle } from 'lucide-react';
+import { FileWarning, Users, LogOut, UserCircle, UserPlus } from 'lucide-react';
 import { type RegistrationSchema } from '@/app/register/schema';
 import { useLanguage } from '@/context/language-context';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { signOut } from 'firebase/auth';
 import { useToast } from '@/hooks/use-toast';
 
@@ -106,10 +107,18 @@ export default function PatientListPage() {
                             <UserCircle className="h-4 w-4" />
                             <span>{t('patientDataPage.loggedInAs', { email: user.email || 'Admin' })}</span>
                         </div>
-                        <Button variant="outline" size="sm" onClick={handleLogout}>
-                            <LogOut className="mr-2 h-4 w-4" />
-                            {t('patientDataPage.logout.button')}
-                        </Button>
+                        <div className="flex items-center gap-2">
+                            <Button variant="outline" size="sm" asChild>
+                                <Link href="/register">
+                                    <UserPlus className="mr-2 h-4 w-4" />
+                                    {t('patientDataPage.registerPatientButton')}
+                                </Link>
+                            </Button>
+                            <Button variant="outline" size="sm" onClick={handleLogout}>
+                                <LogOut className="mr-2 h-4 w-4" />
+                                {t('patientDataPage.logout.button')}
+                            </Button>
+                        </div>
                     </div>
                 )}
             </div>

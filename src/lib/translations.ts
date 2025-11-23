@@ -180,6 +180,7 @@ const en = {
     title: 'Patient Registrations',
     description: 'A list of all submitted patient registrations.',
     loggedInAs: 'Logged in as: {email}',
+    registerPatientButton: 'Register Patient',
     logout: {
         button: 'Logout',
         successTitle: 'Logged Out',
@@ -436,6 +437,7 @@ const hi: typeof en = {
     title: 'रोगी पंजीकरण',
     description: 'सभी प्रस्तुत रोगी पंजीकरणों की एक सूची।',
     loggedInAs: 'लॉग इन: {email}',
+    registerPatientButton: 'रोगी पंजीकृत करें',
     logout: {
         button: 'लॉग आउट',
         successTitle: 'लॉग आउट सफल',
@@ -692,6 +694,7 @@ const mr: typeof en = {
     title: 'रुग्ण नोंदणी',
     description: 'सर्व सादर केलेल्या रुग्ण नोंदणींची सूची.',
     loggedInAs: 'लॉग इन: {email}',
+    registerPatientButton: 'रुग्ण नोंदणी करा',
     logout: {
         button: 'लॉग आउट',
         successTitle: 'लॉग आउट यशस्वी',
