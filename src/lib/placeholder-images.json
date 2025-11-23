@@ -9,7 +9,7 @@
     {
       "id": "doctor-vikas",
       "description": "Portrait of Dr. Vikas Mahatme.",
-      "imageUrl": "https://images.unsplash.com/photo-1622253692010-333f2da60710?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbmlkYW4lMjBkb2N0b3J8ZW58MHx8fHwxNzY0NTI0NjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://storage.googleapis.com/gcs-public-prod-bucket-firestore-studio/user-assets/e65c015b-9d7b-4029-a1b7-7e685f0e9f42",
       "imageHint": "doctor portrait"
     },
     {
