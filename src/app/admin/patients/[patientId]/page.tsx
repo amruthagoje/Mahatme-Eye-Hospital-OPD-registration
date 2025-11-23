@@ -11,6 +11,7 @@ import { User, FileWarning, ArrowLeft, Loader2, Phone, Mail, Home, ShieldAlert }
 import { type RegistrationSchema } from '@/app/register/schema';
 import { useLanguage } from '@/context/language-context';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 type Patient = RegistrationSchema & {
   id: string;
