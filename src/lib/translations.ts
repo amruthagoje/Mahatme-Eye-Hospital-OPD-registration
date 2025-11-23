@@ -24,7 +24,6 @@ const en = {
       about: 'About Us',
       bookAppointment: 'Book Appointment',
       faq: 'FAQ',
-      patientData: 'Patient Data',
     },
     contact: {
       title: 'Contact',
@@ -242,7 +241,6 @@ const hi: typeof en = {
       about: 'हमारे बारे में',
       bookAppointment: 'अपॉइंटमेंट बुक करें',
       faq: 'पूछे जाने वाले प्रश्न',
-      patientData: 'रोगी डेटा',
     },
     contact: {
       title: 'संपर्क करें',
@@ -460,7 +458,6 @@ const mr: typeof en = {
       about: 'आमच्याबद्दल',
       bookAppointment: 'अपॉइंटमेंट बुक करा',
       faq: 'सामान्य प्रश्न',
-      patientData: 'रुग्ण डेटा',
     },
     contact: {
       title: 'संपर्क',
