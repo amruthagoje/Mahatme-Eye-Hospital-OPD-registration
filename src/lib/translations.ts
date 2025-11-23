@@ -185,7 +185,7 @@ const en = {
       age: 'Age',
       gender: 'Gender',
       contactNumber: 'Contact Number',
-      registrationDate: 'Registration Date',
+      registrationDateTime: 'Registration Date & Time',
     },
     noPatients: {
         title: 'No Patients Found',
@@ -382,7 +382,7 @@ const hi: typeof en = {
       age: 'आयु',
       gender: 'लिंग',
       contactNumber: 'संपर्क नंबर',
-      registrationDate: 'पंजीकरण तिथि',
+      registrationDateTime: 'पंजीकरण दिनांक और समय',
     },
     noPatients: {
         title: 'कोई रोगी नहीं मिला',
@@ -579,7 +579,7 @@ const mr: typeof en = {
       age: 'वय',
       gender: 'लिंग',
       contactNumber: 'संपर्क क्रमांक',
-      registrationDate: 'नोंदणीची तारीख',
+      registrationDateTime: 'नोंदणीची तारीख आणि वेळ',
     },
     noPatients: {
         title: 'एकही रुग्ण आढळला नाही',

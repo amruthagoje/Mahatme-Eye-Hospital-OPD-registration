@@ -1,7 +1,7 @@
 
 'use client';
 
-import { collection } from 'firebase/firestore';
+import { collection, query, orderBy } from 'firebase/firestore';
 import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -31,10 +31,13 @@ function formatTimestamp(timestamp: { seconds: number, nanoseconds: number }) {
   if (!timestamp || typeof timestamp.seconds !== 'number') {
     return 'N/A';
   }
-  return new Date(timestamp.seconds * 1000).toLocaleDateString('en-US', {
+  return new Date(timestamp.seconds * 1000).toLocaleString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
   });
 }
 
@@ -44,7 +47,8 @@ export default function PatientListPage() {
 
   const patientsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
-    return collection(firestore, 'patients');
+    const patientsCollection = collection(firestore, 'patients');
+    return query(patientsCollection, orderBy('createdAt', 'desc'));
   }, [firestore]);
 
   const { data: patients, isLoading, error } = useCollection<Patient>(patientsQuery);
@@ -84,7 +88,7 @@ export default function PatientListPage() {
                             <TableHead>{t('patientDataPage.table.age')}</TableHead>
                             <TableHead>{t('patientDataPage.table.gender')}</TableHead>
                             <TableHead>{t('patientDataPage.table.contactNumber')}</TableHead>
-                            <TableHead>{t('patientDataPage.table.registrationDate')}</TableHead>
+                            <TableHead>{t('patientDataPage.table.registrationDateTime')}</TableHead>
                         </TableRow>
                         </TableHeader>
                         <TableBody>
