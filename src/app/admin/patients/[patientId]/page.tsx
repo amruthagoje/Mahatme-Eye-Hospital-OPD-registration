@@ -7,7 +7,7 @@ import { useDoc, useFirestore, useMemoFirebase } from '@/firebase';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { User, FileWarning, ArrowLeft, Loader2, Phone, Mail, Home, ShieldAlert } from 'lucide-react';
+import { User, FileWarning, ArrowLeft, Loader2, Phone, Mail, Home, ShieldAlert, ClipboardList } from 'lucide-react';
 import { type RegistrationSchema } from '@/app/register/schema';
 import { useLanguage } from '@/context/language-context';
 import { Button } from '@/components/ui/button';
@@ -88,7 +88,8 @@ export default function PatientDetailPage() {
                         <InfoItem label={t('patientDetailPage.patientInfo.fullName')} value={patient.fullName} />
                         <InfoItem label={t('patientDetailPage.patientInfo.age')} value={patient.age.toString()} />
                         <InfoItem label={t('patientDetailPage.patientInfo.gender')} value={patient.gender} />
-                        <InfoItem label={t('patientDetailPage.patientInfo.registrationDate')} value={formatTimestamp(patient.createdAt)} />
+                        <InfoItem label={t('patientDetailPage.patientInfo.reasonForVisit')} value={patient.reason} icon={ClipboardList} />
+                        <InfoItem label={t('patientDetailPage.patientInfo.registrationDate')} value={formatTimestamp(patient.createdAt)} className="col-span-1 sm:col-span-2"/>
                     </div>
                 </div>
 
@@ -145,6 +146,8 @@ function PatientDetailSkeleton() {
       <div className="space-y-4">
         <Skeleton className="h-6 w-1/3" />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <Skeleton className="h-10 w-full" />
+          <Skeleton className="h-10 w-full" />
           <Skeleton className="h-10 w-full" />
           <Skeleton className="h-10 w-full" />
         </div>

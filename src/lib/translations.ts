@@ -226,7 +226,8 @@ const en = {
         fullName: 'Full Name',
         age: 'Age',
         gender: 'Gender',
-        registrationDate: 'Registered On'
+        registrationDate: 'Registered On',
+        reasonForVisit: 'Reason for Visit'
     },
     contactInfo: {
         title: 'Contact Information',
@@ -494,7 +495,8 @@ const hi: typeof en = {
         fullName: 'पूरा नाम',
         age: 'आयु',
         gender: 'लिंग',
-        registrationDate: 'पंजीकरण की तारीख'
+        registrationDate: 'पंजीकरण की तारीख',
+        reasonForVisit: 'दौरे का कारण'
     },
     contactInfo: {
         title: 'संपर्क जानकारी',
@@ -762,7 +764,8 @@ const mr: typeof en = {
         fullName: 'पूर्ण नाव',
         age: 'वय',
         gender: 'लिंग',
-        registrationDate: 'नोंदणीची तारीख'
+        registrationDate: 'नोंदणीची तारीख',
+        reasonForVisit: 'भेटीचे कारण'
     },
     contactInfo: {
         title: 'संपर्क माहिती',
