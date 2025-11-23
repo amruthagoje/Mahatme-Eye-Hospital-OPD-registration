@@ -11,6 +11,7 @@ const en = {
     },
     register: 'Register',
     bookAppointment: 'Book Appointment',
+    adminLogin: 'Admin Login',
     mobileMenu: {
       open: 'Open menu',
       register: 'Patient Registration',
@@ -199,6 +200,13 @@ const en = {
         description: 'There was a problem fetching the patient data. It might be a network issue or a permission error.'
     }
   },
+  adminLoginPage: {
+    title: 'Admin Portal',
+    description: 'Enter your credentials to access the admin dashboard.',
+    emailLabel: 'Email',
+    passwordLabel: 'Password',
+    loginButton: 'Login',
+  }
 };
 
 const hi: typeof en = {
@@ -211,6 +219,7 @@ const hi: typeof en = {
     },
     register: 'पंजीकरण करें',
     bookAppointment: 'अपॉइंटमेंट बुक करें',
+    adminLogin: 'एडमिन लॉगिन',
     mobileMenu: {
       open: 'मेन्यू खोलें',
       register: 'रोगी पंजीकरण',
@@ -399,6 +408,13 @@ const hi: typeof en = {
         description: 'रोगी डेटा लाने में कोई समस्या थी। यह एक नेटवर्क समस्या या अनुमति त्रुटि हो सकती है।'
     }
   },
+  adminLoginPage: {
+    title: 'एडमिन पोर्टल',
+    description: 'एडमिन डैशबोर्ड तक पहुंचने के लिए अपनी क्रेडेंशियल दर्ज करें।',
+    emailLabel: 'ईमेल',
+    passwordLabel: 'पासवर्ड',
+    loginButton: 'लॉग इन करें',
+  }
 };
 
 const mr: typeof en = {
@@ -411,6 +427,7 @@ const mr: typeof en = {
     },
     register: 'नोंदणी करा',
     bookAppointment: 'अपॉइंटमेंट बुक करा',
+    adminLogin: 'प्रशासक लॉगिन',
     mobileMenu: {
       open: 'मेनू उघडा',
       register: 'रुग्ण नोंदणी',
@@ -599,6 +616,13 @@ const mr: typeof en = {
         description: 'रुग्ण डेटा आणण्यात समस्या होती. ही नेटवर्क समस्या किंवा परवानगी त्रुटी असू शकते.'
     }
   },
+  adminLoginPage: {
+    title: 'प्रशासक पोर्टल',
+    description: 'प्रशासक डॅशबोर्डमध्ये प्रवेश करण्यासाठी आपले क्रेडेन्शियल्स प्रविष्ट करा.',
+    emailLabel: 'ईमेल',
+    passwordLabel: 'पासवर्ड',
+    loginButton: 'लॉगिन करा',
+  }
 };
 
 

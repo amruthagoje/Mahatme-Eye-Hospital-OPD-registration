@@ -1,7 +1,8 @@
+
 "use client";
 
 import Link from 'next/link';
-import { Menu, Globe, UserPlus, BookMarked } from 'lucide-react';
+import { Menu, Globe, UserPlus, BookMarked, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Select,
@@ -41,6 +42,12 @@ export function Header() {
         </nav>
         <div className="hidden md:flex items-center gap-4">
           <LanguageSwitcher />
+          <Button variant="ghost" size="sm" asChild>
+            <Link href="/admin/login">
+              <Shield className="mr-2 h-4 w-4" />
+              {t('header.adminLogin')}
+            </Link>
+          </Button>
           <Button asChild>
             <Link href="/register">
               <UserPlus className="mr-2 h-4 w-4" />
@@ -116,6 +123,14 @@ function MobileMenu({ navLinks }: { navLinks: {href: string, label: string}[]}) 
                 {t('header.mobileMenu.bookAppointment')}
                 </Link>
             </Button>
+            <div className="border-t pt-4 mt-4">
+                <Button variant="ghost" className="w-full justify-start" asChild>
+                    <Link href="/admin/login">
+                        <Shield className="mr-2 h-4 w-4" />
+                        {t('header.adminLogin')}
+                    </Link>
+                </Button>
+            </div>
             <div className="mt-4">
                 <LanguageSwitcher />
             </div>
