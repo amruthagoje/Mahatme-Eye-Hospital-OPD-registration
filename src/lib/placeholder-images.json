@@ -45,8 +45,8 @@
     {
       "id": "glaucoma",
       "description": "An abstract image representing glaucoma.",
-      "imageUrl": "https://images.unsplash.com/photo-1632054225741-e071804dfc58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxleWUlMjBleGFtfGVufDB8fHx8MTc2MzgxMTExM3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "eye exam"
+      "imageUrl": "https://images.unsplash.com/photo-1579870706082-5a907e6ccc7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxvcHRpYyUyMG5lcnZlfGVufDB8fHx8MTc2Mzg5NDEzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "optic nerve"
     },
     {
       "id": "cornea",
