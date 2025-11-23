@@ -5,9 +5,15 @@ import { Facebook, Twitter, Instagram } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
 import { useLanguage } from '@/context/language-context';
+import { useEffect, useState } from 'react';
 
 export function Footer() {
   const { t } = useLanguage();
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className="border-t bg-background">
@@ -43,7 +49,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} {t('footer.copyright')}</p>
+          <p>&copy; {currentYear} {t('footer.copyright')}</p>
         </div>
       </div>
     </footer>
