@@ -111,9 +111,11 @@ export default function PatientListPage() {
     }
   };
 
-  const handleRowClick = (patientId: string, registrationNumber: string | undefined, visitCount: number | undefined) => {
+  const handleRowClick = (patient: Patient) => {
+    const registrationNumber = patientRegistrationMap.get(patient.fullName);
+    const visitCount = patientVisitCountMap.get(patient.fullName);
     if (!registrationNumber) return;
-    router.push(`/admin/patients/${patientId}?regNo=${registrationNumber}&visits=${visitCount || 1}`);
+    router.push(`/admin/patients/${patient.id}?regNo=${registrationNumber}&visits=${visitCount || 1}`);
   };
 
   return (
@@ -181,16 +183,14 @@ export default function PatientListPage() {
                         </TableHeader>
                         <TableBody>
                         {patients.map((patient, index) => {
-                            const registrationNumber = patientRegistrationMap.get(patient.fullName);
-                            const visitCount = patientVisitCountMap.get(patient.fullName);
                             return (
                                 <TableRow 
                                     key={patient.id} 
-                                    onClick={() => handleRowClick(patient.id, registrationNumber, visitCount)}
+                                    onClick={() => handleRowClick(patient)}
                                     className="cursor-pointer"
                                 >
                                 <TableCell className="font-medium">{patients.length - index}</TableCell>
-                                <TableCell className="font-medium">{registrationNumber}</TableCell>
+                                <TableCell className="font-medium">{patientRegistrationMap.get(patient.fullName)}</TableCell>
                                 <TableCell className="font-medium">{patient.fullName}</TableCell>
                                 <TableCell>{patient.age}</TableCell>
                                 <TableCell>{patient.gender}</TableCell>
@@ -241,5 +241,7 @@ function PatientTableSkeleton() {
       </div>
     );
   }
+
+    
 
     
