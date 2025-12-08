@@ -179,3 +179,5 @@ function PatientDetailSkeleton() {
     </div>
   );
 }
+
+    

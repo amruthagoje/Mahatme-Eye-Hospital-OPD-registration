@@ -74,19 +74,21 @@ export default function PatientListPage() {
   const { patientRegistrationMap, patientVisitCountMap } = useMemo(() => {
     if (!patients) return { patientRegistrationMap: new Map(), patientVisitCountMap: new Map() };
     
-    // Create a copy and sort ascending to find the first registration
-    const sortedPatients = [...patients].sort((a, b) => a.createdAt.seconds - b.createdAt.seconds);
     const registrationMap = new Map<string, string>();
     const visitCountMap = new Map<string, number>();
-    let registrationCounter = 1;
+    const uniquePatientNames = new Set<string>();
 
-    // First pass: assign registration numbers
-    sortedPatients.forEach(patient => {
-        visitCountMap.set(patient.fullName, (visitCountMap.get(patient.fullName) || 0) + 1);
-        if (!registrationMap.has(patient.fullName)) {
-            registrationMap.set(patient.fullName, `MEH${registrationCounter}`);
-            registrationCounter++;
+    // Iterate backwards from oldest to newest to assign registration numbers
+    [...patients].reverse().forEach(patient => {
+        if (!uniquePatientNames.has(patient.fullName)) {
+            uniquePatientNames.add(patient.fullName);
+            registrationMap.set(patient.fullName, `MEH${uniquePatientNames.size}`);
         }
+    });
+
+    // Iterate forward to count visits for each patient name
+    patients.forEach(patient => {
+        visitCountMap.set(patient.fullName, (visitCountMap.get(patient.fullName) || 0) + 1);
     });
 
     return { patientRegistrationMap: registrationMap, patientVisitCountMap: visitCountMap };
@@ -239,7 +241,5 @@ function PatientTableSkeleton() {
       </div>
     );
   }
-
-    
 
     
