@@ -1,13 +1,14 @@
+
 'use client';
 
 import { useMemo } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { doc } from 'firebase/firestore';
 import { useDoc, useFirestore, useMemoFirebase } from '@/firebase';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { User, FileWarning, ArrowLeft, Loader2, Phone, Mail, Home, ShieldAlert, ClipboardList } from 'lucide-react';
+import { User, FileWarning, ArrowLeft, Loader2, Phone, Mail, Home, ShieldAlert, ClipboardList, Hash } from 'lucide-react';
 import { type RegistrationSchema } from '@/app/register/schema';
 import { useLanguage } from '@/context/language-context';
 import { Button } from '@/components/ui/button';
@@ -41,8 +42,10 @@ export default function PatientDetailPage() {
   const firestore = useFirestore();
   const router = useRouter();
   const params = useParams();
+  const searchParams = useSearchParams();
   const { t } = useLanguage();
   const patientId = params.patientId as string;
+  const registrationNumber = searchParams.get('regNo');
 
   const patientDocRef = useMemoFirebase(() => {
     if (!firestore || !patientId) return null;
@@ -85,6 +88,7 @@ export default function PatientDetailPage() {
                 <div className="space-y-2">
                     <h3 className="font-semibold text-lg">{t('patientDetailPage.patientInfo.title')}</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm border p-4 rounded-md">
+                        {registrationNumber && <InfoItem label={t('patientDetailPage.patientInfo.registrationNumber')} value={registrationNumber} icon={Hash} />}
                         <InfoItem label={t('patientDetailPage.patientInfo.fullName')} value={patient.fullName} />
                         <InfoItem label={t('patientDetailPage.patientInfo.age')} value={patient.age.toString()} />
                         <InfoItem label={t('patientDetailPage.patientInfo.gender')} value={patient.gender} />
@@ -170,3 +174,5 @@ function PatientDetailSkeleton() {
     </div>
   );
 }
+
+    

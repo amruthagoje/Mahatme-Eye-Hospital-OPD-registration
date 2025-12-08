@@ -228,7 +228,8 @@ const en = {
         age: 'Age',
         gender: 'Gender',
         registrationDate: 'Registered On',
-        reasonForVisit: 'Reason for Visit'
+        reasonForVisit: 'Reason for Visit',
+        registrationNumber: 'Registration No.',
     },
     contactInfo: {
         title: 'Contact Information',
@@ -498,7 +499,8 @@ const hi: typeof en = {
         age: 'आयु',
         gender: 'लिंग',
         registrationDate: 'पंजीकरण की तारीख',
-        reasonForVisit: 'दौरे का कारण'
+        reasonForVisit: 'दौरे का कारण',
+        registrationNumber: 'पंजीकरण संख्या',
     },
     contactInfo: {
         title: 'संपर्क जानकारी',
@@ -768,7 +770,8 @@ const mr: typeof en = {
         age: 'वय',
         gender: 'लिंग',
         registrationDate: 'नोंदणीची तारीख',
-        reasonForVisit: 'भेटीचे कारण'
+        reasonForVisit: 'भेटीचे कारण',
+        registrationNumber: 'नोंदणी क्र.',
     },
     contactInfo: {
         title: 'संपर्क माहिती',
@@ -822,3 +825,5 @@ type NestedKeyOf<ObjectType extends object> =
   }[keyof ObjectType & (string | number)];
 
 export type TranslationKey = NestedKeyOf<typeof en>;
+
+    

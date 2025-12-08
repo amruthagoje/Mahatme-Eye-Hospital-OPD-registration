@@ -107,6 +107,11 @@ export default function PatientListPage() {
     }
   };
 
+  const handleRowClick = (patientId: string, registrationNumber: string | undefined) => {
+    if (!registrationNumber) return;
+    router.push(`/admin/patients/${patientId}?regNo=${registrationNumber}`);
+  };
+
   return (
     <div className="container py-12 md:py-24">
       <Card>
@@ -171,22 +176,25 @@ export default function PatientListPage() {
                         </TableRow>
                         </TableHeader>
                         <TableBody>
-                        {patients.map((patient, index) => (
-                            <TableRow 
-                                key={patient.id} 
-                                onClick={() => router.push(`/admin/patients/${patient.id}`)}
-                                className="cursor-pointer"
-                            >
-                            <TableCell className="font-medium">{patients.length - index}</TableCell>
-                            <TableCell className="font-medium">{patientRegistrationMap.get(patient.fullName)}</TableCell>
-                            <TableCell className="font-medium">{patient.fullName}</TableCell>
-                            <TableCell>{patient.age}</TableCell>
-                            <TableCell>{patient.gender}</TableCell>
-                            <TableCell>{patient.contactNumber}</TableCell>
-                            <TableCell>{formatDate(patient.createdAt)}</TableCell>
-                            <TableCell>{formatTime(patient.createdAt)}</TableCell>
-                            </TableRow>
-                        ))}
+                        {patients.map((patient, index) => {
+                            const registrationNumber = patientRegistrationMap.get(patient.fullName);
+                            return (
+                                <TableRow 
+                                    key={patient.id} 
+                                    onClick={() => handleRowClick(patient.id, registrationNumber)}
+                                    className="cursor-pointer"
+                                >
+                                <TableCell className="font-medium">{patients.length - index}</TableCell>
+                                <TableCell className="font-medium">{registrationNumber}</TableCell>
+                                <TableCell className="font-medium">{patient.fullName}</TableCell>
+                                <TableCell>{patient.age}</TableCell>
+                                <TableCell>{patient.gender}</TableCell>
+                                <TableCell>{patient.contactNumber}</TableCell>
+                                <TableCell>{formatDate(patient.createdAt)}</TableCell>
+                                <TableCell>{formatTime(patient.createdAt)}</TableCell>
+                                </TableRow>
+                            );
+                        })}
                         </TableBody>
                     </Table>
                 </div>
@@ -228,5 +236,7 @@ function PatientTableSkeleton() {
       </div>
     );
   }
+
+    
 
     
