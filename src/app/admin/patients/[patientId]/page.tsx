@@ -93,7 +93,7 @@ export default function PatientDetailPage() {
                         <InfoItem label={t('patientDetailPage.patientInfo.age')} value={patient.age.toString()} />
                         <InfoItem label={t('patientDetailPage.patientInfo.gender')} value={patient.gender} />
                         <InfoItem label={t('patientDetailPage.patientInfo.reasonForVisit')} value={patient.reason} icon={ClipboardList} />
-                        <InfoItem label={t('patientDetailPage.patientInfo.registrationDate')} value={formatTimestamp(patient.createdAt)} className="col-span-1 sm:col-span-2"/>
+                        <InfoItem label={t('patientDetailPage.patientInfo.registrationDate')} value={formatTimestamp(patient.createdAt)} />
                     </div>
                 </div>
 
@@ -174,5 +174,7 @@ function PatientDetailSkeleton() {
     </div>
   );
 }
+
+    
 
     
