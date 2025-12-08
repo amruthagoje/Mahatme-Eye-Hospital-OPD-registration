@@ -156,6 +156,9 @@ function PatientDetailSkeleton() {
           <Skeleton className="h-10 w-full" />
           <Skeleton className="h-10 w-full" />
           <Skeleton className="h-10 w-full" />
+          <Skeleton className="h-10 w-full" />
+          <Skeleton className="h-10 w-full" />
+           <Skeleton className="h-10 w-full col-span-1 sm:col-span-2" />
         </div>
       </div>
        <div className="space-y-4">
