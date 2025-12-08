@@ -23,6 +23,8 @@ import Link from 'next/link';
 import { signOut } from 'firebase/auth';
 import { useToast } from '@/hooks/use-toast';
 import { useMemo } from 'react';
+import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 
 type Patient = RegistrationSchema & {
     id: string;
@@ -71,27 +73,35 @@ export default function PatientListPage() {
 
   const { data: patients, isLoading, error } = useCollection<Patient>(patientsQuery);
 
-  const { patientRegistrationMap, patientVisitCountMap } = useMemo(() => {
-    if (!patients) return { patientRegistrationMap: new Map(), patientVisitCountMap: new Map() };
+  const { patientRegistrationMap, patientVisitCountMap, patientStatusMap } = useMemo(() => {
+    if (!patients) return { patientRegistrationMap: new Map(), patientVisitCountMap: new Map(), patientStatusMap: new Map() };
     
     const registrationMap = new Map<string, string>();
     const visitCountMap = new Map<string, number>();
-    const uniquePatientNames = new Set<string>();
+    const statusMap = new Map<string, 'New' | 'Old'>();
+    const seenNames = new Set<string>();
 
     // Iterate backwards from oldest to newest to assign registration numbers
+    // and determine the first visit for the "New" status.
     [...patients].reverse().forEach(patient => {
-        if (!uniquePatientNames.has(patient.fullName)) {
-            uniquePatientNames.add(patient.fullName);
-            registrationMap.set(patient.fullName, `MEH${uniquePatientNames.size}`);
+        if (!seenNames.has(patient.fullName)) {
+            seenNames.add(patient.fullName);
+            // Assign a registration number the first time we see a patient
+            registrationMap.set(patient.fullName, `MEH${seenNames.size}`);
+            // This specific visit is the 'New' one
+            statusMap.set(patient.id, 'New');
+        } else {
+             // Subsequent visits are 'Old'
+            statusMap.set(patient.id, 'Old');
         }
     });
 
-    // Iterate forward to count visits for each patient name
+    // Iterate forward (newest to oldest) to count total visits for each patient name
     patients.forEach(patient => {
         visitCountMap.set(patient.fullName, (visitCountMap.get(patient.fullName) || 0) + 1);
     });
 
-    return { patientRegistrationMap: registrationMap, patientVisitCountMap: visitCountMap };
+    return { patientRegistrationMap: registrationMap, patientVisitCountMap: visitCountMap, patientStatusMap: statusMap };
   }, [patients]);
 
   const handleLogout = async () => {
@@ -174,6 +184,7 @@ export default function PatientListPage() {
                             <TableHead>{t('patientDataPage.table.tokenNumber')}</TableHead>
                             <TableHead>{t('patientDataPage.table.registrationNumber')}</TableHead>
                             <TableHead>{t('patientDataPage.table.fullName')}</TableHead>
+                            <TableHead>{t('patientDataPage.table.visitType')}</TableHead>
                             <TableHead>{t('patientDataPage.table.age')}</TableHead>
                             <TableHead>{t('patientDataPage.table.gender')}</TableHead>
                             <TableHead>{t('patientDataPage.table.contactNumber')}</TableHead>
@@ -183,6 +194,7 @@ export default function PatientListPage() {
                         </TableHeader>
                         <TableBody>
                         {patients.map((patient, index) => {
+                            const visitType = patientStatusMap.get(patient.id) || 'Old';
                             return (
                                 <TableRow 
                                     key={patient.id} 
@@ -192,6 +204,11 @@ export default function PatientListPage() {
                                 <TableCell className="font-medium">{patients.length - index}</TableCell>
                                 <TableCell className="font-medium">{patientRegistrationMap.get(patient.fullName)}</TableCell>
                                 <TableCell className="font-medium">{patient.fullName}</TableCell>
+                                <TableCell>
+                                    <Badge variant={visitType === 'New' ? 'default' : 'secondary'} className={cn(visitType === 'New' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800')}>
+                                      {visitType === 'New' ? t('patientDataPage.table.visitTypeNew') : t('patientDataPage.table.visitTypeOld')}
+                                    </Badge>
+                                </TableCell>
                                 <TableCell>{patient.age}</TableCell>
                                 <TableCell>{patient.gender}</TableCell>
                                 <TableCell>{patient.contactNumber}</TableCell>
@@ -223,7 +240,8 @@ export default function PatientListPage() {
 function PatientTableSkeleton() {
     return (
       <div className="space-y-4">
-        <div className="grid grid-cols-8 gap-4 px-4">
+        <div className="grid grid-cols-9 gap-4 px-4">
+            <Skeleton className="h-6 w-full" />
             <Skeleton className="h-6 w-full" />
             <Skeleton className="h-6 w-full" />
             <Skeleton className="h-6 w-full" />

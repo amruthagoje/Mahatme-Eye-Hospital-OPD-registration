@@ -208,6 +208,9 @@ const en = {
       contactNumber: 'Contact Number',
       registrationDate: 'Registration Date',
       registrationTime: 'Registration Time',
+      visitType: 'Visit Type',
+      visitTypeNew: 'New',
+      visitTypeOld: 'Old',
     },
     noPatients: {
         title: 'No Patients Found',
@@ -480,6 +483,9 @@ const hi: typeof en = {
       contactNumber: 'संपर्क नंबर',
       registrationDate: 'पंजीकरण दिनांक',
       registrationTime: 'पंजीकरण समय',
+      visitType: 'दौरे का प्रकार',
+      visitTypeNew: 'नया',
+      visitTypeOld: 'पुराना',
     },
     noPatients: {
         title: 'कोई रोगी नहीं मिला',
@@ -752,6 +758,9 @@ const mr: typeof en = {
       contactNumber: 'संपर्क क्रमांक',
       registrationDate: 'नोंदणीची तारीख',
       registrationTime: 'नोंदणीची वेळ',
+      visitType: 'भेटीचा प्रकार',
+      visitTypeNew: 'नवीन',
+      visitTypeOld: 'जुनी',
     },
     noPatients: {
         title: 'एकही रुग्ण आढळला नाही',
