@@ -22,6 +22,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { signOut } from 'firebase/auth';
 import { useToast } from '@/hooks/use-toast';
+import { useMemo } from 'react';
 
 type Patient = RegistrationSchema & {
     id: string;
@@ -69,6 +70,25 @@ export default function PatientListPage() {
   }, [firestore]);
 
   const { data: patients, isLoading, error } = useCollection<Patient>(patientsQuery);
+
+  const patientRegistrationMap = useMemo(() => {
+    if (!patients) return new Map<string, string>();
+    
+    // Create a copy and sort ascending to find the first registration
+    const sortedPatients = [...patients].sort((a, b) => a.createdAt.seconds - b.createdAt.seconds);
+    const registrationMap = new Map<string, string>();
+    let registrationCounter = 1;
+
+    sortedPatients.forEach(patient => {
+        // If the patient is not already in the map, it's their first visit.
+        if (!registrationMap.has(patient.fullName)) {
+            registrationMap.set(patient.fullName, `MEH${registrationCounter}`);
+            registrationCounter++;
+        }
+    });
+
+    return registrationMap;
+  }, [patients]);
 
   const handleLogout = async () => {
     try {
@@ -158,7 +178,7 @@ export default function PatientListPage() {
                                 className="cursor-pointer"
                             >
                             <TableCell className="font-medium">{patients.length - index}</TableCell>
-                            <TableCell className="font-medium">MEH{patients.length - index}</TableCell>
+                            <TableCell className="font-medium">{patientRegistrationMap.get(patient.fullName)}</TableCell>
                             <TableCell className="font-medium">{patient.fullName}</TableCell>
                             <TableCell>{patient.age}</TableCell>
                             <TableCell>{patient.gender}</TableCell>
