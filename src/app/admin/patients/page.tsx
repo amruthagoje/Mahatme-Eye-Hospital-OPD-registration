@@ -185,9 +185,6 @@ export default function PatientListPage() {
                             <TableHead>{t('patientDataPage.table.registrationNumber')}</TableHead>
                             <TableHead>{t('patientDataPage.table.fullName')}</TableHead>
                             <TableHead>{t('patientDataPage.table.visitType')}</TableHead>
-                            <TableHead>{t('patientDataPage.table.age')}</TableHead>
-                            <TableHead>{t('patientDataPage.table.gender')}</TableHead>
-                            <TableHead>{t('patientDataPage.table.contactNumber')}</TableHead>
                             <TableHead>{t('patientDataPage.table.registrationDate')}</TableHead>
                             <TableHead>{t('patientDataPage.table.registrationTime')}</TableHead>
                         </TableRow>
@@ -209,9 +206,6 @@ export default function PatientListPage() {
                                       {visitType === 'New' ? t('patientDataPage.table.visitTypeNew') : t('patientDataPage.table.visitTypeOld')}
                                     </Badge>
                                 </TableCell>
-                                <TableCell>{patient.age}</TableCell>
-                                <TableCell>{patient.gender}</TableCell>
-                                <TableCell>{patient.contactNumber}</TableCell>
                                 <TableCell>{formatDate(patient.createdAt)}</TableCell>
                                 <TableCell>{formatTime(patient.createdAt)}</TableCell>
                                 </TableRow>
@@ -240,10 +234,7 @@ export default function PatientListPage() {
 function PatientTableSkeleton() {
     return (
       <div className="space-y-4">
-        <div className="grid grid-cols-9 gap-4 px-4">
-            <Skeleton className="h-6 w-full" />
-            <Skeleton className="h-6 w-full" />
-            <Skeleton className="h-6 w-full" />
+        <div className="grid grid-cols-6 gap-4 px-4">
             <Skeleton className="h-6 w-full" />
             <Skeleton className="h-6 w-full" />
             <Skeleton className="h-6 w-full" />
@@ -259,7 +250,3 @@ function PatientTableSkeleton() {
       </div>
     );
   }
-
-    
-
-    
