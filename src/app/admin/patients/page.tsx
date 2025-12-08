@@ -158,7 +158,7 @@ export default function PatientListPage() {
                                 className="cursor-pointer"
                             >
                             <TableCell className="font-medium">{patients.length - index}</TableCell>
-                            <TableCell><code className="text-xs">{patient.id.substring(0, 8).toUpperCase()}</code></TableCell>
+                            <TableCell className="font-medium">MEH{patients.length - index}</TableCell>
                             <TableCell className="font-medium">{patient.fullName}</TableCell>
                             <TableCell>{patient.age}</TableCell>
                             <TableCell>{patient.gender}</TableCell>
@@ -208,3 +208,5 @@ function PatientTableSkeleton() {
       </div>
     );
   }
+
+    
