@@ -111,7 +111,7 @@ export default function PatientListPage() {
 
   const handleRowClick = (patientId: string, registrationNumber: string | undefined, visitCount: number | undefined) => {
     if (!registrationNumber) return;
-    router.push(`/admin/patients/${patientId}?regNo=${registrationNumber}&visits=${visitCount}`);
+    router.push(`/admin/patients/${patientId}?regNo=${registrationNumber}&visits=${visitCount || 1}`);
   };
 
   return (
