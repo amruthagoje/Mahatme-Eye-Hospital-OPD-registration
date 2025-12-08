@@ -141,6 +141,7 @@ export default function PatientListPage() {
                         <TableHeader>
                         <TableRow>
                             <TableHead>{t('patientDataPage.table.tokenNumber')}</TableHead>
+                            <TableHead>{t('patientDataPage.table.registrationNumber')}</TableHead>
                             <TableHead>{t('patientDataPage.table.fullName')}</TableHead>
                             <TableHead>{t('patientDataPage.table.age')}</TableHead>
                             <TableHead>{t('patientDataPage.table.gender')}</TableHead>
@@ -157,6 +158,7 @@ export default function PatientListPage() {
                                 className="cursor-pointer"
                             >
                             <TableCell className="font-medium">{patients.length - index}</TableCell>
+                            <TableCell><code className="text-xs">{patient.id.substring(0, 8).toUpperCase()}</code></TableCell>
                             <TableCell className="font-medium">{patient.fullName}</TableCell>
                             <TableCell>{patient.age}</TableCell>
                             <TableCell>{patient.gender}</TableCell>
@@ -188,7 +190,8 @@ export default function PatientListPage() {
 function PatientTableSkeleton() {
     return (
       <div className="space-y-4">
-        <div className="grid grid-cols-7 gap-4 px-4">
+        <div className="grid grid-cols-8 gap-4 px-4">
+            <Skeleton className="h-6 w-full" />
             <Skeleton className="h-6 w-full" />
             <Skeleton className="h-6 w-full" />
             <Skeleton className="h-6 w-full" />

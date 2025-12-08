@@ -201,6 +201,7 @@ const en = {
     },
     table: {
       tokenNumber: 'Token No.',
+      registrationNumber: 'Registration No.',
       fullName: 'Full Name',
       age: 'Age',
       gender: 'Gender',
@@ -470,6 +471,7 @@ const hi: typeof en = {
     },
     table: {
       tokenNumber: 'टोकन नंबर',
+      registrationNumber: 'पंजीकरण संख्या',
       fullName: 'पूरा नाम',
       age: 'आयु',
       gender: 'लिंग',
@@ -739,6 +741,7 @@ const mr: typeof en = {
     },
     table: {
       tokenNumber: 'टोकन क्र.',
+      registrationNumber: 'नोंदणी क्र.',
       fullName: 'पूर्ण नाव',
       age: 'वय',
       gender: 'लिंग',
