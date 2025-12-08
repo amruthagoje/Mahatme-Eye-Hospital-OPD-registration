@@ -90,7 +90,7 @@ export default function PatientDetailPage() {
                     <h3 className="font-semibold text-lg">{t('patientDetailPage.patientInfo.title')}</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm border p-4 rounded-md">
                         {registrationNumber && <InfoItem label={t('patientDetailPage.patientInfo.registrationNumber')} value={registrationNumber} icon={Hash} />}
-                        <InfoItem label={t('patientDetailPage.patientInfo.fullName')} value={patient.fullName} />
+                        <InfoItem label={t('patientDetailPage.patientInfo.fullName')} value={patient.fullName} icon={User} />
                         <InfoItem label={t('patientDetailPage.patientInfo.age')} value={patient.age.toString()} />
                         <InfoItem label={t('patientDetailPage.patientInfo.gender')} value={patient.gender} />
                         <InfoItem label={t('patientDetailPage.patientInfo.reasonForVisit')} value={patient.reason} icon={ClipboardList} />
@@ -179,3 +179,5 @@ function PatientDetailSkeleton() {
     </div>
   );
 }
+
+    
