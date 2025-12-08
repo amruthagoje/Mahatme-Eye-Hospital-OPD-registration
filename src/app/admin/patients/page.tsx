@@ -71,23 +71,25 @@ export default function PatientListPage() {
 
   const { data: patients, isLoading, error } = useCollection<Patient>(patientsQuery);
 
-  const patientRegistrationMap = useMemo(() => {
-    if (!patients) return new Map<string, string>();
+  const { patientRegistrationMap, patientVisitCountMap } = useMemo(() => {
+    if (!patients) return { patientRegistrationMap: new Map(), patientVisitCountMap: new Map() };
     
     // Create a copy and sort ascending to find the first registration
     const sortedPatients = [...patients].sort((a, b) => a.createdAt.seconds - b.createdAt.seconds);
     const registrationMap = new Map<string, string>();
+    const visitCountMap = new Map<string, number>();
     let registrationCounter = 1;
 
+    // First pass: assign registration numbers
     sortedPatients.forEach(patient => {
-        // If the patient is not already in the map, it's their first visit.
+        visitCountMap.set(patient.fullName, (visitCountMap.get(patient.fullName) || 0) + 1);
         if (!registrationMap.has(patient.fullName)) {
             registrationMap.set(patient.fullName, `MEH${registrationCounter}`);
             registrationCounter++;
         }
     });
 
-    return registrationMap;
+    return { patientRegistrationMap: registrationMap, patientVisitCountMap: visitCountMap };
   }, [patients]);
 
   const handleLogout = async () => {
@@ -107,9 +109,9 @@ export default function PatientListPage() {
     }
   };
 
-  const handleRowClick = (patientId: string, registrationNumber: string | undefined) => {
+  const handleRowClick = (patientId: string, registrationNumber: string | undefined, visitCount: number | undefined) => {
     if (!registrationNumber) return;
-    router.push(`/admin/patients/${patientId}?regNo=${registrationNumber}`);
+    router.push(`/admin/patients/${patientId}?regNo=${registrationNumber}&visits=${visitCount}`);
   };
 
   return (
@@ -178,10 +180,11 @@ export default function PatientListPage() {
                         <TableBody>
                         {patients.map((patient, index) => {
                             const registrationNumber = patientRegistrationMap.get(patient.fullName);
+                            const visitCount = patientVisitCountMap.get(patient.fullName);
                             return (
                                 <TableRow 
                                     key={patient.id} 
-                                    onClick={() => handleRowClick(patient.id, registrationNumber)}
+                                    onClick={() => handleRowClick(patient.id, registrationNumber, visitCount)}
                                     className="cursor-pointer"
                                 >
                                 <TableCell className="font-medium">{patients.length - index}</TableCell>

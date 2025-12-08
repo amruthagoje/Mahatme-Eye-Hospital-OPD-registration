@@ -230,6 +230,7 @@ const en = {
         registrationDate: 'Registered On',
         reasonForVisit: 'Reason for Visit',
         registrationNumber: 'Registration No.',
+        numberOfVisits: 'Number of Visits',
     },
     contactInfo: {
         title: 'Contact Information',
@@ -501,6 +502,7 @@ const hi: typeof en = {
         registrationDate: 'पंजीकरण की तारीख',
         reasonForVisit: 'दौरे का कारण',
         registrationNumber: 'पंजीकरण संख्या',
+        numberOfVisits: 'दौरों की संख्या',
     },
     contactInfo: {
         title: 'संपर्क जानकारी',
@@ -772,6 +774,7 @@ const mr: typeof en = {
         registrationDate: 'नोंदणीची तारीख',
         reasonForVisit: 'भेटीचे कारण',
         registrationNumber: 'नोंदणी क्र.',
+        numberOfVisits: 'भेटींची संख्या',
     },
     contactInfo: {
         title: 'संपर्क माहिती',
