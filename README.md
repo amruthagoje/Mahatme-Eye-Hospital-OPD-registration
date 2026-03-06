@@ -7,10 +7,9 @@ A modern **Full-Stack Web Application** designed to streamline patient registrat
 # 📌 Project Information
 
 **Project Type:** Full-Stack Web Application (Patient & Admin Portal)
-**Role:** Full-Stack Developer
 
 🎥 **Prototype Demo Video**
-[`Mahatme Eye Hospital.mov`](https://drive.google.com/file/d/1mqVdLRQZqScg9rcyhSGEuHOeL7bRHU1A/view?usp=sharing)
+[`Mahatme Eye Hospital.mov`](https://drive.google.com/file/d/1UuWxjLBsctirf5yAWx97H-3SJTDyvYcN/view?usp=sharing)
 
 💻 **GitHub Repository**
 [https://github.com/amruthagoje/Mahatme-Eye-Hospital-OPD-registration](https://github.com/amruthagoje/Mahatme-Eye-Hospital-OPD-registration)
