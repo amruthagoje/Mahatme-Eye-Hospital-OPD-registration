@@ -1,0 +1,594 @@
+{
+  "entities": {
+    "Hospital": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Hospital",
+      "type": "object",
+      "description": "Represents a hospital entity with its core information.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the hospital entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the hospital."
+        },
+        "history": {
+          "type": "string",
+          "description": "A description of the hospital's history."
+        },
+        "awards": {
+          "type": "string",
+          "description": "A description of the hospital's awards."
+        },
+        "socialContributions": {
+          "type": "string",
+          "description": "A description of the hospital's social contributions."
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "Service": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Service",
+      "type": "object",
+      "description": "Represents a medical service offered by the hospital.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the service entity."
+        },
+        "hospitalId": {
+          "type": "string",
+          "description": "Reference to the Hospital. (Relationship: Hospital 1:N Service)"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the service (e.g., LASIK, retina surgery)."
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description of the service."
+        }
+      },
+      "required": [
+        "id",
+        "hospitalId",
+        "name"
+      ]
+    },
+    "Doctor": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Doctor",
+      "type": "object",
+      "description": "Represents a doctor or medical professional associated with the hospital.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the doctor entity."
+        },
+        "hospitalId": {
+          "type": "string",
+          "description": "Reference to the Hospital. (Relationship: Hospital 1:N Doctor)"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the doctor."
+        },
+        "bio": {
+          "type": "string",
+          "description": "A short biography of the doctor."
+        },
+        "photoUrl": {
+          "type": "string",
+          "description": "URL of the doctor's photo.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "hospitalId",
+        "name"
+      ]
+    },
+    "Patient": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Patient",
+      "type": "object",
+      "description": "Represents a patient registered at the hospital.",
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "description": "The full name of the patient."
+        },
+        "age": {
+          "type": "number",
+          "description": "The patient's age."
+        },
+        "gender": {
+          "type": "string",
+          "enum": [
+            "Male",
+            "Female",
+            "Other"
+          ],
+          "description": "The patient's gender."
+        },
+        "contactNumber": {
+          "type": "string",
+          "description": "The patient's contact phone number."
+        },
+        "address": {
+          "type": "string",
+          "description": "The patient's full address."
+        },
+        "email": {
+          "type": "string",
+          "description": "The patient's email address (optional).",
+          "format": "email"
+        },
+        "reason": {
+          "type": "string",
+          "enum": [
+            "General enquiry",
+            "Medicine Help",
+            "Consultation"
+          ],
+          "description": "The reason for the patient's visit."
+        },
+        "emergencyContactName": {
+          "type": "string",
+          "description": "Name of the emergency contact person."
+        },
+        "emergencyContactNumber": {
+          "type": "string",
+          "description": "Phone number of the emergency contact person."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the registration was submitted."
+        }
+      },
+      "required": [
+        "fullName",
+        "age",
+        "gender",
+        "contactNumber",
+        "address",
+        "reason",
+        "emergencyContactName",
+        "emergencyContactNumber",
+        "createdAt"
+      ]
+    },
+    "Appointment": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Appointment",
+      "type": "object",
+      "description": "Represents an appointment scheduled by a patient.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the appointment entity."
+        },
+        "patientId": {
+          "type": "string",
+          "description": "Reference to the Patient. (Relationship: Patient 1:N Appointment)"
+        },
+        "hospitalId": {
+          "type": "string",
+          "description": "Reference to the Hospital. (Relationship: Hospital 1:N Appointment)"
+        },
+        "doctorId": {
+          "type": "string",
+          "description": "Reference to the Doctor. (Relationship: Doctor 1:N Appointment)"
+        },
+        "serviceId": {
+          "type": "string",
+          "description": "Reference to the Service. (Relationship: Service 1:N Appointment)"
+        },
+        "appointmentDateTime": {
+          "type": "string",
+          "description": "The date and time of the appointment.",
+          "format": "date-time"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Any notes related to the appointment."
+        }
+      },
+      "required": [
+        "id",
+        "patientId",
+        "doctorId",
+        "serviceId",
+        "appointmentDateTime"
+      ]
+    },
+    "Testimonial": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Testimonial",
+      "type": "object",
+      "description": "Represents a patient testimonial for the hospital.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the testimonial entity."
+        },
+        "hospitalId": {
+          "type": "string",
+          "description": "Reference to the Hospital. (Relationship: Hospital 1:N Testimonial)"
+        },
+        "patientName": {
+          "type": "string",
+          "description": "The name of the patient providing the testimonial."
+        },
+        "content": {
+          "type": "string",
+          "description": "The text content of the testimonial."
+        },
+        "date": {
+          "type": "string",
+          "description": "The date the testimonial was given.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "hospitalId",
+        "patientName",
+        "content"
+      ]
+    },
+    "FAQ": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "FAQ",
+      "type": "object",
+      "description": "Represents a frequently asked question and its answer.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the FAQ entity."
+        },
+        "hospitalId": {
+          "type": "string",
+          "description": "Reference to the Hospital. (Relationship: Hospital 1:N FAQ)"
+        },
+        "question": {
+          "type": "string",
+          "description": "The question text."
+        },
+        "answer": {
+          "type": "string",
+          "description": "The answer text."
+        }
+      },
+      "required": [
+        "id",
+        "hospitalId",
+        "question",
+        "answer"
+      ]
+    },
+    "NewsArticle": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "NewsArticle",
+      "type": "object",
+      "description": "Represents a news article or announcement related to the hospital.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the news article entity."
+        },
+        "hospitalId": {
+          "type": "string",
+          "description": "Reference to the Hospital. (Relationship: Hospital 1:N NewsArticle)"
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the news article."
+        },
+        "content": {
+          "type": "string",
+          "description": "The text content of the news article."
+        },
+        "publishDate": {
+          "type": "string",
+          "description": "The date the news article was published.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "hospitalId",
+        "title",
+        "content",
+        "publishDate"
+      ]
+    },
+    "Donation": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Donation",
+      "type": "object",
+      "description": "Represents a donation made to the hospital.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the donation entity."
+        },
+        "hospitalId": {
+          "type": "string",
+          "description": "Reference to the Hospital. (Relationship: Hospital 1:N Donation)"
+        },
+        "donorName": {
+          "type": "string",
+          "description": "The name of the donor."
+        },
+        "amount": {
+          "type": "number",
+          "description": "The amount of the donation."
+        },
+        "donationDate": {
+          "type": "string",
+          "description": "The date the donation was made.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "hospitalId",
+        "donorName",
+        "amount",
+        "donationDate"
+      ]
+    },
+    "Volunteer": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Volunteer",
+      "type": "object",
+      "description": "Represents a volunteer application or record.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the volunteer entity."
+        },
+        "hospitalId": {
+          "type": "string",
+          "description": "Reference to the Hospital. (Relationship: Hospital 1:N Volunteer)"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the volunteer."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the volunteer.",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The phone number of the volunteer."
+        },
+        "availability": {
+          "type": "string",
+          "description": "The volunteer's availability."
+        }
+      },
+      "required": [
+        "id",
+        "hospitalId",
+        "name",
+        "email",
+        "phone"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/patients/{patientId}",
+        "definition": {
+          "entityName": "Patient",
+          "schema": {
+            "$ref": "#/backend/entities/Patient"
+          },
+          "description": "Stores patient registration information. This is a top-level collection.",
+          "params": [
+            {
+              "name": "patientId",
+              "description": "The unique identifier for the patient registration."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/hospitals/{hospitalId}",
+        "definition": {
+          "entityName": "Hospital",
+          "schema": {
+            "$ref": "#/backend/entities/Hospital"
+          },
+          "description": "Stores hospital information. Top-level collection for hospital entities.",
+          "params": [
+            {
+              "name": "hospitalId",
+              "description": "The unique identifier for the hospital."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/hospitals/{hospitalId}/services/{serviceId}",
+        "definition": {
+          "entityName": "Service",
+          "schema": {
+            "$ref": "#/backend/entities/Service"
+          },
+          "description": "Stores services offered by a specific hospital.",
+          "params": [
+            {
+              "name": "hospitalId",
+              "description": "The unique identifier for the hospital."
+            },
+            {
+              "name": "serviceId",
+              "description": "The unique identifier for the service."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/hospitals/{hospitalId}/doctors/{doctorId}",
+        "definition": {
+          "entityName": "Doctor",
+          "schema": {
+            "$ref": "#/backend/entities/Doctor"
+          },
+          "description": "Stores information about doctors working at a specific hospital.",
+          "params": [
+            {
+              "name": "hospitalId",
+              "description": "The unique identifier for the hospital."
+            },
+            {
+              "name": "doctorId",
+              "description": "The unique identifier for the doctor."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/hospitals/{hospitalId}/appointments/{appointmentId}",
+        "definition": {
+          "entityName": "Appointment",
+          "schema": {
+            "$ref": "#/backend/entities/Appointment"
+          },
+          "description": "Stores appointment information for a specific hospital.",
+          "params": [
+            {
+              "name": "hospitalId",
+              "description": "The unique identifier for the hospital."
+            },
+            {
+              "name": "appointmentId",
+              "description": "The unique identifier for the appointment."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/hospitals/{hospitalId}/testimonials/{testimonialId}",
+        "definition": {
+          "entityName": "Testimonial",
+          "schema": {
+            "$ref": "#/backend/entities/Testimonial"
+          },
+          "description": "Stores patient testimonials for a specific hospital.",
+          "params": [
+            {
+              "name": "hospitalId",
+              "description": "The unique identifier for the hospital."
+            },
+            {
+              "name": "testimonialId",
+              "description": "The unique identifier for the testimonial."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/hospitals/{hospitalId}/faqs/{faqId}",
+        "definition": {
+          "entityName": "FAQ",
+          "schema": {
+            "$ref": "#/backend/entities/FAQ"
+          },
+          "description": "Stores frequently asked questions for a specific hospital.",
+          "params": [
+            {
+              "name": "hospitalId",
+              "description": "The unique identifier for the hospital."
+            },
+            {
+              "name": "faqId",
+              "description": "The unique identifier for the FAQ."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/hospitals/{hospitalId}/newsArticles/{newsArticleId}",
+        "definition": {
+          "entityName": "NewsArticle",
+          "schema": {
+            "$ref": "#/backend/entities/NewsArticle"
+          },
+          "description": "Stores news articles related to a specific hospital.",
+          "params": [
+            {
+              "name": "hospitalId",
+              "description": "The unique identifier for the hospital."
+            },
+            {
+              "name": "newsArticleId",
+              "description": "The unique identifier for the news article."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/hospitals/{hospitalId}/donations/{donationId}",
+        "definition": {
+          "entityName": "Donation",
+          "schema": {
+            "$ref": "#/backend/entities/Donation"
+          },
+          "description": "Stores donation information for a specific hospital.",
+          "params": [
+            {
+              "name": "hospitalId",
+              "description": "The unique identifier for the hospital."
+            },
+            {
+              "name": "donationId",
+              "description": "The unique identifier for the donation."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/hospitals/{hospitalId}/volunteers/{volunteerId}",
+        "definition": {
+          "entityName": "Volunteer",
+          "schema": {
+            "$ref": "#/backend/entities/Volunteer"
+          },
+          "description": "Stores volunteer applications for a specific hospital.",
+          "params": [
+            {
+              "name": "hospitalId",
+              "description": "The unique identifier for the hospital."
+            },
+            {
+              "name": "volunteerId",
+              "description": "The unique identifier for the volunteer application."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore data structure is designed to support a patient-friendly hospital website. It is structured to ensure authorization independence, clarity, and scalability while adhering to the defined principles. The primary strategy is denormalization to avoid `get()` calls in security rules and enforce authorization independence.\n\n*   **Hospitals Collection:** The root collection for hospitals. All other collections are subcollections of a specific hospital, enabling data isolation and multi-tenancy.\n*   **Services, Doctors, Patients, Appointments, Testimonials, FAQs, NewsArticles, Donations, Volunteers:** These are subcollections of the `/hospitals/{hospitalId}` collection. This structure facilitates easy querying of entities related to a specific hospital and maintains a clear hierarchy.\n\n**Authorization Independence and QAPs:**\n\n*   Authorization Independence is achieved by storing roles in the database. There are no custom claims.\n*   The application uses path-based ownership for `hospitals/{hospitalId}` for private data. All the other collections, are subcollections under a hospital, making security rules for these subcollections straightforward.\n*   This design supports QAPs by segregating data based on hospital. Listing data for a specific hospital is efficient because all relevant data is contained within the hospital's document path."
+  }
+}

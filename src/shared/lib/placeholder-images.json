@@ -1,0 +1,88 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "The Mahatme Eye Hospital building.",
+      "imageUrl": "https://images.unsplash.com/photo-1618498082410-b4aa22193b38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBob3NwaXRhbCUyMGJ1aWxkaW5nfGVufDB8fHx8MTc2MzgxMTE5Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hospital building"
+    },
+    {
+      "id": "doctor-vikas",
+      "description": "Portrait of Dr. Vikas Mahatme.",
+      "imageUrl": "https://images.unsplash.com/photo-1622253692010-333f2da60710?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbmlkYW4lMjBkb2N0b3J8ZW58MHx8fHwxNzY0NTI0NjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian doctor"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "A smiling patient.",
+      "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzbWlsaW5nJTIwcGVyc29ufGVufDB8fHx8MTc2Mzc5NDIwMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smiling person"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Another smiling patient.",
+      "imageUrl": "https://images.unsplash.com/photo-1579047917338-a6a69144fe63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxoYXBweSUyMHBlcnNvbnxlbnwwfHx8fDE3NjM3ODk0ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy person"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "A happy family.",
+      "imageUrl": "https://images.unsplash.com/photo-1603367563698-67012943fd67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxoYXBweSUyMGZhbWlseXxlbnwwfHx8fDE3NjM3NTU1Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy family"
+    },
+    {
+      "id": "award-1",
+      "description": "A picture of a medical award.",
+      "imageUrl": "https://images.unsplash.com/photo-1656761961817-fc9bad62f5df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhd2FyZCUyMHRyb3BoeXxlbnwwfHx8fDE3NjM4MDQ3MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "award trophy"
+    },
+    {
+      "id": "community-event",
+      "description": "A community eye check-up camp.",
+      "imageUrl": "https://images.unsplash.com/photo-1708195994250-bd77af111141?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtZWRpY2FsJTIwY2FtcHxlbnwwfHx8fDE3NjM4MDM3Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "medical camp"
+    },
+    {
+      "id": "glaucoma",
+      "description": "An abstract image representing glaucoma.",
+      "imageUrl": "https://images.unsplash.com/photo-1632054225741-e071804dfc58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxleWUlMjBleGFtfGVufDB8fHx8MTc2MzgxMTExM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "eye exam"
+    },
+    {
+      "id": "cornea",
+      "description": "A close-up image of an eye's cornea.",
+      "imageUrl": "https://images.unsplash.com/photo-1705071393219-7c0c65afa314?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb3JuZWElMjBleWV8ZW58MHx8fHwxNzYzODExMTE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cornea eye"
+    },
+    {
+      "id": "retina-surgery",
+      "description": "An image showing a retina eye surgery in progress.",
+      "imageUrl": "https://images.unsplash.com/photo-1615552440985-d652ebf4c199?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxleWUlMjBzdXJnZXJ5fGVufDB8fHx8MTc2MzgxMTExM3ww&ixlibrb-4.1.0&q=80&w=1080",
+      "imageHint": "eye surgery"
+    },
+    {
+      "id": "diabetic-retinopathy",
+      "description": "An illustration of diabetic retinopathy.",
+      "imageUrl": "https://images.unsplash.com/photo-1736012685132-227addb515fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxyZXRpbmElMjBzY2FufGVufDB8fHx8MTc2Mzc2MzAxMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "retina scan"
+    },
+    {
+      "id": "cataract-surgery",
+      "description": "An image related to cataract surgery.",
+      "imageUrl": "https://images.unsplash.com/photo-1742627541273-33ebe14bf1f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjYXRhcmFjdHxlbnwwfHx8fDE3NjM4MTEzNDN8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "cataract"
+    },
+    {
+      "id": "lasik",
+      "description": "An image illustrating the lasik eye surgery procedure.",
+      "imageUrl": "https://images.unsplash.com/photo-1678872381876-a2a3afe03fd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsYXNpayUyMHN1cmdlcnl8ZW58MHx8fHwxNzYzODExMTEzfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "lasik surgery"
+    },
+    {
+      "id": "squint-eyes",
+      "description": "An image showing an example of squint eyes.",
+      "imageUrl": "https://images.unsplash.com/photo-1702326937740-112fdf9ec75b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMnx8dGhlJTIwZXllcyUyMGRvJTIwbm90JTIwYWxpZ24lMjB0byUyMGxvb2slMjBhdCUyMHRoZSUyMHNhbWUlMjBwb2ludCUyMGF0JTIwdGhlJTIwc2FtZSUyMHRpbWUlMkMlMjBjYXVzaW5nJTIwb25lJTIwZXllJTIwdG8lMjB0dXJuJTIwaW53YXJkJTJDJTIwb3V0d2FyZCUyQyUyMHVwd2FyZCUyQyUyMG9yJTIwZG93bndhcmR8ZW58MHx8fHwxNzYzODExNDgyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "squint eyes"
+    }
+  ]
+}
