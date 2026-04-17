@@ -3,11 +3,9 @@
 
 import Image from 'next/image';
 import { Card, CardContent } from '@/frontend/components/ui/card';
-import { PlaceHolderImages } from '@/shared/lib/placeholder-images';
 import { useLanguage } from '@/frontend/context/language-context';
 
 export function About() {
-  const doctorImage = PlaceHolderImages.find(img => img.id === 'doctor-vikas');
   const { t } = useLanguage();
 
   return (
@@ -25,16 +23,13 @@ export function About() {
         <div className="flex justify-center">
           <Card className="p-4 max-w-sm w-full shadow-lg text-center">
             <CardContent className="flex flex-col items-center p-0 md:p-2">
-              {doctorImage && (
-                <Image
-                  src={doctorImage.imageUrl}
-                  alt={doctorImage.description}
-                  width={150}
-                  height={150}
-                  className="rounded-full mb-4 border-4 border-primary/20"
-                  data-ai-hint={doctorImage.imageHint}
-                />
-              )}
+              <Image
+                src="/dr-vikas-mahatme.jpg"
+                alt={t('about.doctorName')}
+                width={150}
+                height={150}
+                className="rounded-full mb-4 border-4 border-primary/20 object-cover aspect-square"
+              />
               <h3 className="text-xl font-semibold">{t('about.doctorName')}</h3>
               <p className="text-sm text-primary font-medium">{t('about.doctorTitle')}</p>
               <p className="mt-2 text-sm text-muted-foreground">
