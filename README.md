@@ -19,6 +19,7 @@ A modern **Full-Stack Web Application** designed to streamline patient registrat
 
 📄 **Project Thesis (PDF)**  
 [View Thesis](https://drive.google.com/file/d/1VzOQHUw1IDgQb8vYYGCdMtoIE3ZYqVFS/view?usp=sharing)
+
 ---
 
 # 📖 Project Overview
