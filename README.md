@@ -17,6 +17,8 @@ A modern **Full-Stack Web Application** designed to streamline patient registrat
 🌐 **Live Website**  
 [Visit Here](https://mahatme-eye-hospital-opd-registration.netlify.app)
 
+📄 **Project Thesis (PDF)**  
+[View Thesis](https://drive.google.com/file/d/1VzOQHUw1IDgQb8vYYGCdMtoIE3ZYqVFS/view?usp=sharing)
 ---
 
 # 📖 Project Overview
